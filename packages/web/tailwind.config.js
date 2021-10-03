@@ -3,7 +3,15 @@ module.exports = {
   mode: "jit",
   darkMode: false, // or 'media' or 'class'
   theme: {
-    extend: {},
+    fontFamily: {
+      cursive: ["Dancing Script", "cursive"],
+      serif: ["Merriweather", "serif"],
+    },
+    extend: {
+      backgroundImage: {
+        main: "url('/image/background.jpg')",
+      },
+    },
   },
   variants: {
     extend: {},
