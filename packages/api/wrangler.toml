@@ -1,8 +1,12 @@
-type = "webpack"
+name = "api"
+type = "javascript"
 zone_id = ""
 account_id = ""
 route = ""
 workers_dev = true
-webpack_config = "webpack.config.js"
-name = "api"
 compatibility_date = "2021-10-04"
+
+[build]
+command = "npm install && npm run build"
+[build.upload]
+format = "service-worker"
