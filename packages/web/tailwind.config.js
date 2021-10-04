@@ -1,20 +1,34 @@
+const colors = require("tailwindcss/colors");
+
 module.exports = {
   purge: ["./pages/**/*.{js,ts,jsx,tsx}", "./components/**/*.{js,ts,jsx,tsx}"],
   mode: "jit",
-  darkMode: false, // or 'media' or 'class'
+  darkMode: false,
   theme: {
-    fontFamily: {
-      cursive: ["Dancing Script", "cursive"],
-      serif: ["Merriweather", "serif"],
-    },
     extend: {
+      fontFamily: {
+        "theme-secondary": ["Dancing Script", "cursive"],
+        "theme-primary": ["Merriweather", "serif"],
+      },
+      colors: {
+        "theme-primary": colors.yellow[500],
+        "theme-secondary": colors.red[800],
+        "theme-neutral": colors.gray[500],
+        "theme-white": colors.white,
+      },
       backgroundImage: {
-        main: "url('/image/background.jpg')",
+        "theme-background": "url('/image/background.jpg')",
+      },
+      width: {
+        "48rem": "48rem",
+      },
+      borderRadius: {
+        "6xl": "3rem",
       },
     },
   },
   variants: {
     extend: {},
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/forms")],
 };
