@@ -1,10 +1,14 @@
-name = "api"
+name = "weddingflare-api"
+
+# Build config
 type = "javascript"
-zone_id = ""
-account_id = ""
-route = ""
-workers_dev = true
 compatibility_date = "2021-10-04"
+
+# Account Settings
+account_id = "257d9994d1e15e8fbeb6053f590ad96b"
+zone_id = "60e63062a969300c8e4b39a5534da959"
+route = "weddingflare.seese.xyz/api/*"
+workers_dev = true
 
 [build]
 command = "npm install && npm run build"
