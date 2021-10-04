@@ -2,4 +2,3 @@ node_modules
 dist
 transpiled
 worker
-tailwind.config.js
