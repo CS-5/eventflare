@@ -1,13 +1,21 @@
 import { Router } from "itty-router";
-import { send, RSVP } from "./email";
+import { RSVP } from "./types";
+import { emailRSVP } from "./email";
+import { notionRSVP } from "./notion";
 
 const router = Router();
 
+// Handle POST requests to the RSVP endpoint
 router.post("/api/rsvp", async (request: Request) => {
-  const json = await request.json();
-  const rsvp: RSVP = JSON.parse(json);
+  const rsvp: RSVP = JSON.parse(await request.json());
 
-  await send(rsvp);
+  try {
+    await notionRSVP(rsvp); // RSVP > Notion
+
+    if (rsvp.message) await emailRSVP(rsvp); //RSVP > Email (Confirmation w/ ical)
+  } catch (error) {
+    console.error(error);
+  }
 });
 
 router.all("*", () => new Response("Not Found", { status: 404 }));

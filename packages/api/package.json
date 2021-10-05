@@ -23,6 +23,7 @@
     "webpack-cli": "^4.7.0"
   },
   "dependencies": {
+    "@notionhq/client": "^0.4.1",
     "@sendgrid/mail": "^7.4.7",
     "ical-generator": "^3.0.1",
     "itty-router": "^2.4.4"
