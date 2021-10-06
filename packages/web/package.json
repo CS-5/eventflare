@@ -1,5 +1,5 @@
 {
-  "name": "weddingflare-web",
+  "name": "@cs-5/weddingflare-web",
   "version": "1.0.0",
   "private": true,
   "author": "CS-5",
@@ -12,6 +12,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@cs-5/weddingflare-lib": "^1.0.0",
     "@react-google-maps/api": "^2.4.1",
     "@tailwindcss/forms": "^0.3.4",
     "moment": "^2.29.1",

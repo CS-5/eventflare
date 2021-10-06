@@ -1,5 +1,5 @@
 import { Client } from "@notionhq/client";
-import { RSVP } from "../types";
+import { RSVP } from "@cs-5/weddingflare-lib";
 
 export const notionRSVP = async (rsvp: RSVP): Promise<void> => {
   if (!NOTION_API_KEY || !NOTION_DATABASE_ID) return;

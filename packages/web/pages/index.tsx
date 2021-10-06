@@ -1,14 +1,16 @@
 import { ReactNode } from "react";
 import Head from "next/head";
-import { Location } from "./components/location";
-import { Registry } from "./components/registry";
-import { RSVP } from "./components/rsvp";
-import { Schedule } from "./components/schedule";
+import { LocationSection } from "./components/location";
+import { RegistrySection } from "./components/registry";
+import { RSVPSection } from "./components/rsvp";
+import { ScheduleSection } from "./components/schedule";
 import { Section } from "./components/section";
 
 const date = new Date("August 01, 2022 12:00");
-const rsvpURL = "https://weddingflare-api-dev.seese.workers.dev/api/rsvp";
-const mapsApiKey = process.env.MAPS_API_KEY ?? "";
+const location = "Somewhere, USA";
+
+const rsvpURL = process.env.RSVP_URL ?? "";
+const mapsAPIKey = process.env.MAPS_API_KEY ?? "";
 
 export default function Index(): ReactNode {
   return (
@@ -36,27 +38,27 @@ export default function Index(): ReactNode {
                 })}
               </span>
               <span className="hidden md:inline-block">&nbsp;-&nbsp;</span>
-              <span className="block text-1xl md:inline-block">
-                Somewhere, USA
-              </span>
+              <span className="block text-1xl md:inline-block">{location}</span>
             </h2>
           </header>
 
           {/* Main */}
           <main className="relative bg-theme-white rounded-t-6xl mt-80 md:mt-64 lg:mt-48 md:rounded-6xl md:drop-shadow-2xl font-serif text-lg leading-8 p-6">
-            <Section name="RSVP">
-              <RSVP rsvpURL={rsvpURL} />
-            </Section>
+            {rsvpURL && (
+              <Section name="RSVP">
+                <RSVPSection rsvpURL={rsvpURL} />
+              </Section>
+            )}
             <Section name="Schedule">
-              <Schedule />
+              <ScheduleSection />
             </Section>
-            {mapsApiKey && (
+            {mapsAPIKey && (
               <Section name="Location">
-                <Location mapsApiKey={mapsApiKey} />
+                <LocationSection mapsApiKey={mapsAPIKey} />
               </Section>
             )}
             <Section name="Registry">
-              <Registry />
+              <RegistrySection />
             </Section>
           </main>
 

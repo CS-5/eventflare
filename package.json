@@ -1,5 +1,5 @@
 {
-  "name": "weddingflare",
+  "name": "@cs-5/weddingflare",
   "private": true,
   "dependencies": {
     "buster": "file:packages/api",

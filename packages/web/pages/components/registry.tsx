@@ -1,6 +1,6 @@
 import { FunctionComponent } from "react";
 
-export const Registry: FunctionComponent = () => {
+export const RegistrySection: FunctionComponent = () => {
   return (
     <>
       This is placeholder text and will be replaced when the website goes live.

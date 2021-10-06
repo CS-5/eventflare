@@ -1,22 +1,24 @@
-import { FunctionComponent, useState } from "react";
-
-interface RSVP {
-  fName: string;
-  lName: string;
-  number: number;
-  email: string;
-}
+import { FunctionComponent, useEffect, useState } from "react";
+import { RSVP } from "@cs-5/weddingflare-lib";
+import { useForm } from "react-hook-form";
 
 interface Props {
   rsvpURL: string;
 }
 
-export const RSVP: FunctionComponent<Props> = ({ rsvpURL }) => {
+export const RSVPSection: FunctionComponent<Props> = ({ rsvpURL }) => {
+  const { register, handleSubmit } = useForm<RSVP>();
   const [submitting, setSubmitting] = useState(false);
+
+  const onSubmit = handleSubmit((data) => {
+    setSubmitting(true);
+    if (!rsvpURL) return alert(`${data.fName} has been registered!`);
+    setSubmitting(false);
+  });
 
   return (
     <div className="text-center">
-      <form className="w-full max-w-lg inline-block">
+      <form className="w-full max-w-lg inline-block" onSubmit={onSubmit}>
         <div className="flex flex-wrap -mx-3 mb-4">
           <div className="w-full md:w-1/2 px-3 mb-4 md:mb-0">
             <label
@@ -27,8 +29,9 @@ export const RSVP: FunctionComponent<Props> = ({ rsvpURL }) => {
             </label>
             <input
               className="appearance-none block w-full bg-gray-50 border border-theme-secondary rounded-2xl py-3 px-4 leading-tight focus:outline-none focus:bg-white"
-              name="fName"
+              id="fName"
               type="text"
+              {...register("fName")}
               required
             />
           </div>
@@ -41,8 +44,9 @@ export const RSVP: FunctionComponent<Props> = ({ rsvpURL }) => {
             </label>
             <input
               className="appearance-none block w-full bg-gray-50 border border-theme-secondary rounded-2xl py-3 px-4 leading-tight focus:bg-white"
-              name="lName"
+              id="lName"
               type="text"
+              {...register("lName")}
               required
             />
           </div>
@@ -57,9 +61,10 @@ export const RSVP: FunctionComponent<Props> = ({ rsvpURL }) => {
             </label>
             <input
               className="appearance-none block w-full bg-gray-50 border border-theme-secondary rounded-2xl py-3 px-4"
-              name="number"
+              id="number"
               type="number"
               min="1"
+              {...register("number")}
               required
             />
           </div>
@@ -72,8 +77,9 @@ export const RSVP: FunctionComponent<Props> = ({ rsvpURL }) => {
             </label>
             <input
               className="appearance-none block w-full bg-gray-50 border border-theme-secondary rounded-2xl py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-              name="email"
+              id="email"
               type="email"
+              {...register("email")}
             />
             <p className="w-full text-gray-500 text-xs italic mt-2">
               (Optional, for calendar invite)
@@ -83,7 +89,7 @@ export const RSVP: FunctionComponent<Props> = ({ rsvpURL }) => {
         <div className="items-center">
           <div className="inline-block md:w-2/3">
             <button
-              className="text-white transition duration-500 ease-in-out bg-theme-primary hover:bg-theme-secondary shadow drop-shadow-lg font-bold py-2 px-6 rounded-6xl"
+              className="text-white transition duration-500 ease-in-out bg-theme-primary hover:bg-theme-accent shadow drop-shadow-lg font-bold py-2 px-6 rounded-6xl"
               type="submit"
             >
               {submitting ? "Submitting..." : "RSVP"}

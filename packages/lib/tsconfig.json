@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "esnext",
+    "lib": ["esnext"],
+    "types": [],
+    "noEmit": true
+  },
+  "files": ["index.d.ts"]
+}

@@ -1,6 +1,6 @@
 import { FunctionComponent } from "react";
 
-export const Schedule: FunctionComponent = () => {
+export const ScheduleSection: FunctionComponent = () => {
   return (
     <>
       This is placeholder text and will be replaced when the website goes live.

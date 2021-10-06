@@ -5,7 +5,7 @@ interface Props {
   mapsApiKey: string;
 }
 
-export const Location: FunctionComponent<Props> = ({ mapsApiKey }) => {
+export const LocationSection: FunctionComponent<Props> = ({ mapsApiKey }) => {
   const [map, setMap] = useState(null);
 
   return (
