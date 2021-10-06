@@ -6,6 +6,8 @@ import { RSVP } from "./components/rsvp";
 import { Schedule } from "./components/schedule";
 import { Section } from "./components/section";
 
+const date: Date = new Date("June 12, 2022 12:00");
+
 export default function Index(): ReactNode {
   return (
     <>
@@ -25,7 +27,11 @@ export default function Index(): ReactNode {
             </h1>
             <h2 className="mt-2 font-theme-secondary font-normal md:text-3xl text-theme-secondary">
               <span className="block md:inline-block text-2xl">
-                June 12, 2022
+                {date.toLocaleDateString("en-US", {
+                  month: "long",
+                  day: "numeric",
+                  year: "numeric",
+                })}
               </span>
               <span className="hidden md:inline-block text-2xl">
                 &nbsp;-&nbsp;

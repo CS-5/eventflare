@@ -10,12 +10,12 @@ interface RSVP {
 export const RSVP: FunctionComponent = () => {
   const [submitting, setSubmitting] = React.useState(false);
 
+  console.log(process.env.API_URL);
+  const handleSubmit = () => {};
+
   return (
     <div className="text-center">
-      <form
-        /*onSubmit={}*/
-        className="w-full max-w-lg inline-block"
-      >
+      <form onSubmit={handleSubmit} className="w-full max-w-lg inline-block">
         <div className="flex flex-wrap -mx-3 mb-4">
           <div className="w-full md:w-1/2 px-3 mb-4 md:mb-0">
             <label
