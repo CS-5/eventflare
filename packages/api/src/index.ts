@@ -1,7 +1,7 @@
 import { Router } from "itty-router";
 import { RSVP } from "./types";
-import { emailRSVP } from "./email";
-import { notionRSVP } from "./notion";
+import { emailRSVP } from "./handlers/email";
+import { notionRSVP } from "./handlers/notion";
 
 const router = Router();
 
@@ -12,7 +12,7 @@ router.post("/api/rsvp", async (request: Request) => {
   try {
     await notionRSVP(rsvp); // RSVP > Notion
 
-    if (rsvp.message) await emailRSVP(rsvp); //RSVP > Email (Confirmation w/ ical)
+    await emailRSVP(rsvp); //RSVP > Email (Confirmation w/ ical)
   } catch (error) {
     console.error(error);
   }

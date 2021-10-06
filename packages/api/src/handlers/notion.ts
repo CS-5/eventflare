@@ -1,16 +1,8 @@
 import { Client } from "@notionhq/client";
-import { RSVP } from "./types";
-
-const NOTION_API_KEY = process.env.NOTION_API_KEY;
-const NOTION_DATABASE_ID = process.env.NOTION_DATABASE_ID;
-
-let enabled = false;
-if (NOTION_API_KEY) {
-  enabled = true;
-}
+import { RSVP } from "../types";
 
 export const notionRSVP = async (rsvp: RSVP): Promise<void> => {
-  if (!enabled || !NOTION_DATABASE_ID) return;
+  if (!NOTION_API_KEY || !NOTION_DATABASE_ID) return;
 
   /* Create new client with API key */
   const notion = new Client({

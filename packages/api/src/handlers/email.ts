@@ -1,19 +1,12 @@
-import { RSVP } from "./types";
-import sgmail from "@sendgrid/mail";
+import { RSVP } from "../types";
 import ical from "ical-generator";
 
-const SENDGRID_API_KEY = process.env.SENDGRID_API_KEY;
-
-let enabled = false;
-if (SENDGRID_API_KEY) {
-  sgmail.setApiKey(SENDGRID_API_KEY);
-  enabled = true;
-}
+const SENDGRID_URL = "https://api.sendgrid.com/v3/mail/send";
 
 export const emailRSVP = async (rsvp: RSVP): Promise<void> => {
   const message = rsvp.message;
 
-  if (!enabled || !message) return;
+  if (!message || !SENDGRID_API_KEY) return;
 
   /* Create ical invite */
   const ics = ical({
@@ -31,12 +24,19 @@ export const emailRSVP = async (rsvp: RSVP): Promise<void> => {
 
   /* Create message */
   const msg = {
-    to: rsvp.email,
-    from: message.from,
+    personalizations: [{ to: [{ email: rsvp.email }] }],
+    from: { email: message.from },
     subject: message.subject,
-    text: ics.toString(),
+    content: [{ type: "text/plain", value: ics.toString() }],
   };
 
   /* Send message */
-  await sgmail.send(msg);
+  await fetch(SENDGRID_URL, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${SENDGRID_API_KEY}`,
+    },
+    body: JSON.stringify(msg),
+  });
 };
