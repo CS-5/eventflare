@@ -3,5 +3,6 @@ module.exports = {
   reactStrictMode: true,
   env: {
     MAPS_API_KEY: process.env.MAPS_API_KEY,
+    RSVP_URL: process.env.RSVP_URL,
   },
 };
