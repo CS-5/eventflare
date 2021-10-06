@@ -1,9 +1,10 @@
 {
-  "name": "@cs-5/weddingflare",
+  "name": "weddingflare",
   "private": true,
   "dependencies": {
-    "buster": "file:packages/api",
-    "web": "file:packages/web"
+    "api": "file:packages/api",
+    "web": "file:packages/web",
+    "lib": "file:packages/lib"
   },
   "command": {
     "bootstrap": {

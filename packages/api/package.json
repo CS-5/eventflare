@@ -1,5 +1,5 @@
 {
-  "name": "@cs-5/weddingflare-api",
+  "name": "@weddingflare/api",
   "version": "1.0.0",
   "private": true,
   "main": "dist/worker.js",
@@ -13,32 +13,31 @@
   "license": "MIT",
   "devDependencies": {
     "@cloudflare/workers-types": "^2.2.2",
+    "@cloudflare/wrangler": "^1.19.3",
     "@types/jest": "^26.0.23",
     "@types/luxon": "^2.0.4",
     "@types/node": "^16.10.3",
     "@types/service-worker-mock": "^2.0.1",
+    "@typescript-eslint/eslint-plugin": "^4.31.2",
     "dayjs": "^1.10.7",
+    "eslint": "7.32.0",
+    "eslint-config-prettier": "^8.3.0",
     "jest": "^27.0.1",
     "moment": "^2.29.1",
     "moment-timezone": "^0.5.33",
+    "prettier": "^2.3.2",
     "rrule": "^2.6.8",
     "service-worker-mock": "^2.0.5",
     "ts-jest": "^27.0.1",
     "ts-loader": "^9.2.2",
+    "typescript": "4.4.3",
     "webpack": "^5.38.1",
-    "webpack-cli": "^4.7.0",
-    "@cloudflare/wrangler": "^1.19.3",
-    "@typescript-eslint/eslint-plugin": "^4.31.2",
-    "eslint": "7.32.0",
-    "eslint-config-prettier": "^8.3.0",
-    "lerna": "^4.0.0",
-    "prettier": "^2.3.2",
-    "typescript": "4.4.3"
+    "webpack-cli": "^4.7.0"
   },
   "dependencies": {
-    "@cs-5/weddingflare-lib": "file:../lib",
     "@notionhq/client": "^0.4.1",
     "ical-generator": "^3.0.1",
-    "itty-router": "^2.4.4"
+    "itty-router": "^2.4.4",
+    "@weddingflare/lib": "file:../lib"
   }
 }

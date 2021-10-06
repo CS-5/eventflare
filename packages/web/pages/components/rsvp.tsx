@@ -1,5 +1,5 @@
 import { FunctionComponent, useEffect, useState } from "react";
-import { RSVP } from "@cs-5/weddingflare-lib";
+import { RSVP } from "@weddingflare/lib";
 import { useForm } from "react-hook-form";
 
 interface Props {

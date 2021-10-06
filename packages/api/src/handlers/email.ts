@@ -1,4 +1,4 @@
-import { RSVP } from "@cs-5/weddingflare-lib";
+import { RSVP } from "@weddingflare/lib";
 import ical from "ical-generator";
 
 const SENDGRID_URL = "https://api.sendgrid.com/v3/mail/send";
