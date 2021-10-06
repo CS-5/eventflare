@@ -10,9 +10,19 @@ export const RSVPSection: FunctionComponent<Props> = ({ rsvpURL }) => {
   const { register, handleSubmit } = useForm<RSVP>();
   const [submitting, setSubmitting] = useState(false);
 
-  const onSubmit = handleSubmit((data) => {
+  const onSubmit = handleSubmit(async (data) => {
     setSubmitting(true);
     if (!rsvpURL) return alert(`${data.fName} has been registered!`);
+
+    await fetch(rsvpURL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    }).catch((error) => {
+      console.log(error);
+    });
     setSubmitting(false);
   });
 

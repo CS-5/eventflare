@@ -1,5 +1,5 @@
 import { Router } from "itty-router";
-import { RSVP } from "./types";
+import { RSVP } from "@cs-5/weddingflare-lib";
 import { emailRSVP } from "./handlers/email";
 import { notionRSVP } from "./handlers/notion";
 

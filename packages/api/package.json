@@ -29,7 +29,7 @@
     "webpack-cli": "^4.7.0"
   },
   "dependencies": {
-    "@cs-5/weddingflare-lib": "^1.0.0",
+    "@cs-5/weddingflare-lib": "file:../lib",
     "@notionhq/client": "^0.4.1",
     "ical-generator": "^3.0.1",
     "itty-router": "^2.4.4"
