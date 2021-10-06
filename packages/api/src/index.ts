@@ -7,14 +7,16 @@ const router = Router();
 
 // Handle POST requests to the RSVP endpoint
 router.post("/api/rsvp", async (request: Request) => {
-  const rsvp: RSVP = JSON.parse(await request.json());
+  const rsvp: RSVP = await request.json();
 
   try {
     await notionRSVP(rsvp); // RSVP > Notion
 
     await emailRSVP(rsvp); //RSVP > Email (Confirmation w/ ical)
-  } catch (error) {
-    console.error(error);
+  } catch (err) {
+    if (err instanceof Error) {
+      console.error(err.message);
+    }
   }
 });
 

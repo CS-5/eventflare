@@ -44,11 +44,10 @@ export default function Index(): ReactNode {
 
           {/* Main */}
           <main className="relative bg-theme-white rounded-t-6xl mt-80 md:mt-64 lg:mt-48 md:rounded-6xl md:drop-shadow-2xl font-serif text-lg leading-8 p-6">
-            {rsvpURL && (
-              <Section name="RSVP">
-                <RSVPSection rsvpURL={rsvpURL} />
-              </Section>
-            )}
+            <Section name="RSVP">
+              <RSVPSection />
+            </Section>
+
             <Section name="Schedule">
               <ScheduleSection />
             </Section>

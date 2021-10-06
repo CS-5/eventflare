@@ -2,19 +2,14 @@ import { FunctionComponent, useEffect, useState } from "react";
 import { RSVP } from "@weddingflare/lib";
 import { useForm } from "react-hook-form";
 
-interface Props {
-  rsvpURL: string;
-}
-
-export const RSVPSection: FunctionComponent<Props> = ({ rsvpURL }) => {
+export const RSVPSection: FunctionComponent = () => {
   const { register, handleSubmit } = useForm<RSVP>();
   const [submitting, setSubmitting] = useState(false);
 
   const onSubmit = handleSubmit(async (data) => {
     setSubmitting(true);
-    if (!rsvpURL) return alert(`${data.fName} has been registered!`);
 
-    await fetch(rsvpURL, {
+    await fetch("/api/rsvp", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
