@@ -13,7 +13,7 @@ The goal with the web frontend is to create an easily modifiable, flexible, and 
 
 ## Development and Configuration
 
-1. As described in the project root's [README](https://github.com/CS-5/weddingflare), Lerna is used to manage shared dependencies and handle publishing. To install dependencies, first run: `npx lerna bootstrap` from the project root.
+1. As described in the project root's [README](https://github.com/CS-5/weddingflare), Lerna is used to manage shared dependencies and handle publishing. To install dependencies, first run: `npx lerna bootstrap` from the project root. _Note: This command doesn't always seem to work (still learning exactly how to do monorepos) so if there are missing dependencies, `npm install` usually fixes them._
 
 2. Update the constants in `pages/index.tsx` and the enviornment variables from `.env.example` to set up the frontend.
 
