@@ -11,13 +11,13 @@ module.exports = {
         "theme-secondary": ["Dancing Script", "cursive"],
       },
       colors: {
-        "theme-primary": colors.yellow[500],
-        "theme-secondary": colors.red[800],
-        "theme-neutral": colors.gray[500],
+        "theme-primary": colors.red[800],
+        "theme-accent": colors.yellow[500],
+        "theme-gray": colors.gray[500],
         "theme-white": colors.white,
       },
       backgroundImage: {
-        "theme-background": "url('/image/background.jpg')",
+        "theme-background": "url('/image/background.png')",
       },
       width: {
         "48rem": "48rem",

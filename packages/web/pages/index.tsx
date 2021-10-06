@@ -6,7 +6,9 @@ import { RSVP } from "./components/rsvp";
 import { Schedule } from "./components/schedule";
 import { Section } from "./components/section";
 
-const date: Date = new Date("June 12, 2022 12:00");
+const date = new Date("August 01, 2022 12:00");
+const rsvpURL = "https://weddingflare-api-dev.seese.workers.dev/api/rsvp";
+const mapsApiKey = process.env.MAPS_API_KEY ?? "";
 
 export default function Index(): ReactNode {
   return (
@@ -21,23 +23,21 @@ export default function Index(): ReactNode {
           {/* Header */}
           <header className="z-0 fixed h-screen left-2/4 -translate-x-1/2  text-center md:mt-0">
             <h1 className="font-serif font-bold text-6xl text-theme-primary">
-              <span className="block md:inline-block">Carson</span>
+              <span className="block md:inline-block">Jack</span>
               <span className="block md:inline-block">&nbsp;&&nbsp;</span>
-              <span className="block md:inline-block">Tatianna</span>
+              <span className="block md:inline-block">Jill</span>
             </h1>
-            <h2 className="mt-2 font-theme-secondary font-normal md:text-3xl text-theme-secondary">
-              <span className="block md:inline-block text-2xl">
+            <h2 className="mt-2 font-theme-secondary font-normal text-2xl md:text-3xl">
+              <span className="block md:inline-block">
                 {date.toLocaleDateString("en-US", {
                   month: "long",
                   day: "numeric",
                   year: "numeric",
                 })}
               </span>
-              <span className="hidden md:inline-block text-2xl">
-                &nbsp;-&nbsp;
-              </span>
-              <span className="block text-1xl md:inline-block md:text-2xl">
-                Shippensburg, PA
+              <span className="hidden md:inline-block">&nbsp;-&nbsp;</span>
+              <span className="block text-1xl md:inline-block">
+                Somewhere, USA
               </span>
             </h2>
           </header>
@@ -45,14 +45,16 @@ export default function Index(): ReactNode {
           {/* Main */}
           <main className="relative bg-theme-white rounded-t-6xl mt-80 md:mt-64 lg:mt-48 md:rounded-6xl md:drop-shadow-2xl font-serif text-lg leading-8 p-6">
             <Section name="RSVP">
-              <RSVP />
+              <RSVP rsvpURL={rsvpURL} />
             </Section>
             <Section name="Schedule">
               <Schedule />
             </Section>
-            <Section name="Location">
-              <Location />
-            </Section>
+            {mapsApiKey && (
+              <Section name="Location">
+                <Location mapsApiKey={mapsApiKey} />
+              </Section>
+            )}
             <Section name="Registry">
               <Registry />
             </Section>
@@ -60,13 +62,14 @@ export default function Index(): ReactNode {
 
           {/* Footer */}
           <footer className="bg-theme-white md:bg-opacity-0 md:text-white font-semibold pt-0 pb-5 md:pt-5 text-center">
-            <span className="block md:inline-block">
-              Made with ❤️ by <a href="https://github.com/cs-5/"></a>
-              Carson,&nbsp;
-            </span>
-            <span className="block md:inline-block">
-              powered by Cloudflare ⛅ Workers and Pages.
-            </span>
+            <a href="https://github.com/CS-5/weddingflare">
+              <span className="block md:inline-block">
+                Made with ❤️ by CS-5,&nbsp;
+              </span>
+              <span className="block md:inline-block">
+                powered by Cloudflare ⛅ Workers and Pages.
+              </span>
+            </a>
           </footer>
         </div>
       </div>

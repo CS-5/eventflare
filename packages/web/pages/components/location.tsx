@@ -1,15 +1,16 @@
-import { FunctionComponent } from "react";
+import { FunctionComponent, useState } from "react";
+import { GoogleMap, LoadScript } from "@react-google-maps/api";
 
-export const Location: FunctionComponent = () => {
+interface Props {
+  mapsApiKey: string;
+}
+
+export const Location: FunctionComponent<Props> = ({ mapsApiKey }) => {
+  const [map, setMap] = useState(null);
+
   return (
-    <>
-      This is placeholder text and will be replaced when the website goes live.
-      This is placeholder text and will be replaced when the website goes live.
-      Placeholder text. This is placeholder text. Placeholder text. Placeholder
-      text fills the space before the real content has been input. Using
-      placeholder text is common in the industry and means that the site is
-      being built to realistic standards. Placeholder text fills the space
-      before the real content has been input.
-    </>
+    <LoadScript googleMapsApiKey={mapsApiKey}>
+      <GoogleMap zoom={10} />
+    </LoadScript>
   );
 };

@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from "react";
+import { FunctionComponent, useState } from "react";
 
 interface RSVP {
   fName: string;
@@ -7,15 +7,16 @@ interface RSVP {
   email: string;
 }
 
-export const RSVP: FunctionComponent = () => {
-  const [submitting, setSubmitting] = React.useState(false);
+interface Props {
+  rsvpURL: string;
+}
 
-  console.log(process.env.API_URL);
-  const handleSubmit = () => {};
+export const RSVP: FunctionComponent<Props> = ({ rsvpURL }) => {
+  const [submitting, setSubmitting] = useState(false);
 
   return (
     <div className="text-center">
-      <form onSubmit={handleSubmit} className="w-full max-w-lg inline-block">
+      <form className="w-full max-w-lg inline-block">
         <div className="flex flex-wrap -mx-3 mb-4">
           <div className="w-full md:w-1/2 px-3 mb-4 md:mb-0">
             <label
