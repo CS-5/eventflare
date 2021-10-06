@@ -12,6 +12,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@react-google-maps/api": "^2.4.1",
     "@tailwindcss/forms": "^0.3.4",
     "moment": "^2.29.1",
     "next": "11.1.2",
