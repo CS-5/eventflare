@@ -1,0 +1,20 @@
+name = "weddingflare-api-dev"
+
+# Build config
+type = "javascript"
+compatibility_date = "2021-10-01"
+
+# Account Settings
+account_id = "abc123"
+zone_id = "def456"
+route = ""
+workers_dev = true
+
+[env.prod]
+name = "weddingflare-api"
+route = "your.domain/api/*"
+
+[build]
+command = "npm install && npm run build"
+[build.upload]
+format = "service-worker"
