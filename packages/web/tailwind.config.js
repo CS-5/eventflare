@@ -7,8 +7,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        "theme-secondary": ["Dancing Script", "cursive"],
         "theme-primary": ["Merriweather", "serif"],
+        "theme-secondary": ["Dancing Script", "cursive"],
       },
       colors: {
         "theme-primary": colors.yellow[500],

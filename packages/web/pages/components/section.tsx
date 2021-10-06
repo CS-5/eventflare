@@ -8,7 +8,7 @@ interface Props {
 export const Section: FunctionComponent<Props> = ({ name, children }) => {
   return (
     <div className="pb-6 text-center">
-      <h3 className="font-theme-primary font-bold pb-4 text-theme-secondary text-4xl md:text-5xl">
+      <h3 className="font-theme-secondary font-bold pb-4 text-theme-secondary text-4xl md:text-5xl">
         {name}
       </h3>
       {children}

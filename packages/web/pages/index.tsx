@@ -23,12 +23,12 @@ export default function Index(): ReactNode {
               <span className="block md:inline-block">&nbsp;&&nbsp;</span>
               <span className="block md:inline-block">Tatianna</span>
             </h1>
-            <h2 className="mt-2 font-serif font-normal md:text-3xl text-theme-secondary">
+            <h2 className="mt-2 font-theme-secondary font-normal md:text-3xl text-theme-secondary">
               <span className="block md:inline-block text-2xl">
                 June 12, 2022
               </span>
               <span className="hidden md:inline-block text-2xl">
-                &nbsp;·&nbsp;
+                &nbsp;-&nbsp;
               </span>
               <span className="block text-1xl md:inline-block md:text-2xl">
                 Shippensburg, PA
