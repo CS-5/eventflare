@@ -100,7 +100,7 @@ As a reminder, the event is taking place at ${EVENT_LOCATION} on ${EVENT_LOCAL_D
               required
             />
           </div>
-          {!EMAIL_FROM && ( //TODO: Recenter attending if hidden
+          {EMAIL_FROM && ( //TODO: Recenter attending if hidden
             <div className="w-full md:w-1/2 px-3">
               <label
                 className="block uppercase tracking-wide text-s font-bold mb-2"
