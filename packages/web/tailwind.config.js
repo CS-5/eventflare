@@ -12,7 +12,7 @@ module.exports = {
       },
       colors: {
         "theme-primary": colors.yellow[500],
-        "theme-accent": colors.blue[500],
+        "theme-accent": colors.blue[600],
         "theme-gray": colors.gray[500],
         "theme-white": colors.white,
       },

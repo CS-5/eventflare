@@ -10,7 +10,7 @@ import {
 } from "../../constants";
 
 export const RSVPSection: FunctionComponent = () => {
-  const { register, handleSubmit } = useForm<RSVP>();
+  const { register, handleSubmit, reset } = useForm<RSVP>();
   const [submitting, setSubmitting] = useState(false);
 
   const onSubmit = handleSubmit(async (data) => {
@@ -45,6 +45,7 @@ As a reminder, the event is taking place at ${EVENT_LOCATION} on ${EVENT_LOCAL_D
     }
 
     setSubmitting(false);
+    reset();
   });
 
   return (
@@ -85,7 +86,7 @@ As a reminder, the event is taking place at ${EVENT_LOCATION} on ${EVENT_LOCAL_D
         <div className="flex flex-wrap -mx-3 mb-6">
           <div className="w-full md:w-1/2 px-3 mb-4 md:mb-0">
             <label
-              className="block uppercase tracking-wide  text-s font-bold mb-2"
+              className="block uppercase tracking-wide text-s font-bold mb-2"
               htmlFor="number"
             >
               # Attending
@@ -99,23 +100,25 @@ As a reminder, the event is taking place at ${EVENT_LOCATION} on ${EVENT_LOCAL_D
               required
             />
           </div>
-          <div className="w-full md:w-1/2 px-3">
-            <label
-              className="block uppercase tracking-wide text-s font-bold mb-2"
-              htmlFor="email"
-            >
-              Email
-            </label>
-            <input
-              className="appearance-none block w-full bg-gray-50 border border-theme-secondary rounded-2xl py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-              id="email"
-              type="email"
-              {...register("email")}
-            />
-            <p className="w-full text-gray-500 text-xs italic mt-2">
-              (Optional, for calendar invite)
-            </p>
-          </div>
+          {!EMAIL_FROM && ( //TODO: Recenter attending if hidden
+            <div className="w-full md:w-1/2 px-3">
+              <label
+                className="block uppercase tracking-wide text-s font-bold mb-2"
+                htmlFor="email"
+              >
+                Email
+              </label>
+              <input
+                className="appearance-none block w-full bg-gray-50 border border-theme-secondary rounded-2xl py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                id="email"
+                type="email"
+                {...register("email")}
+              />
+              <p className="w-full text-gray-500 text-xs italic mt-2">
+                (Optional, for calendar invite)
+              </p>
+            </div>
+          )}
         </div>
         <div className="items-center">
           <div className="inline-block md:w-2/3">
