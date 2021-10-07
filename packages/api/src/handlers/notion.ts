@@ -10,6 +10,7 @@ export const addNotionRSVP = async (rsvp: RSVP): Promise<void> => {
   });
 
   /* Attempt to create new DB entry with RSVP info */
+  const { fName, lName, email, number } = rsvp;
   await notion.pages.create({
     parent: { database_id: NOTION_DATABASE_ID },
     properties: {
@@ -19,18 +20,16 @@ export const addNotionRSVP = async (rsvp: RSVP): Promise<void> => {
           {
             type: "text",
             text: {
-              content: `${rsvp.fName} ${rsvp.lName}`,
+              content: `${fName} ${lName}`,
             },
           },
         ],
       },
       "Number Attending": {
-        type: "number",
-        number: rsvp.number,
+        number,
       },
       Email: {
-        type: "email",
-        email: rsvp.email,
+        email,
       },
     } as any,
   });

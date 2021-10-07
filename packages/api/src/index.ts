@@ -23,10 +23,12 @@ router.post("/api/rsvp", async (request: Request) => {
 
     //RSVP > Email (Confirmation w/ ical, only fires if a Message is provided in the RSVP)
     if (typeof SENDGRID_API_KEY !== "undefined") await emailRSVP(rsvp);
+
+    return new Response("OK", { status: 200 });
   } catch (err) {
     if (err instanceof Error) {
       console.error(err.message);
-      process.exit(1);
+      return new Response("Error", { status: 500 });
     }
   }
 });
