@@ -10,12 +10,16 @@ router.post("/api/rsvp", async (request: Request) => {
   const rsvp: RSVP = await request.json();
 
   try {
-    await notionRSVP(rsvp); // RSVP > Notion
+    // RSVP > Notion
+    //TODO: Disabled for troubleshooting
+    //await notionRSVP(rsvp);
 
-    await emailRSVP(rsvp); //RSVP > Email (Confirmation w/ ical)
+    //RSVP > Email (Confirmation w/ ical, only fires if a Message is provided in the RSVP)
+    await emailRSVP(rsvp);
   } catch (err) {
     if (err instanceof Error) {
       console.error(err.message);
+      process.exit(1);
     }
   }
 });

@@ -1,0 +1,31 @@
+name = "weddingflare-api-dev"
+
+# Build Configuration
+type = "javascript"
+compatibility_date = "2021-10-04"
+
+# Account Settings
+account_id = "257d9994d1e15e8fbeb6053f590ad96b"
+zone_id = "60e63062a969300c8e4b39a5534da959"
+route = ""
+workers_dev = true
+
+vars = { PRODUCTION = "false" }
+
+# KV Settings
+kv_namespaces = [ 
+  { binding = "WF_DEV_KV", id = "3a91be828d0f4b4da7c5af216f45df29" },
+  { binding = "WF_PROD_KV", id = "2ecfe0405fb548aeac37c58688d40cf5" }
+]
+
+[env.prod]
+name = "weddingflare-api"
+zone_id = "6742fb7575e78ff485737fbab12254af"
+route = "weddingflare.carsonseese.com/api/*"
+
+vars = { PRODUCTION = "true" }
+
+[build]
+command = "npm run build"
+[build.upload]
+format = "service-worker"

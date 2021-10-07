@@ -9,7 +9,6 @@ import { Section } from "./components/section";
 const date = new Date("August 01, 2022 12:00");
 const location = "Somewhere, USA";
 
-const rsvpURL = process.env.RSVP_URL ?? "";
 const mapsAPIKey = process.env.MAPS_API_KEY ?? "";
 
 export default function Index(): ReactNode {
@@ -47,7 +46,6 @@ export default function Index(): ReactNode {
             <Section name="RSVP">
               <RSVPSection />
             </Section>
-
             <Section name="Schedule">
               <ScheduleSection />
             </Section>

@@ -10,23 +10,19 @@ export const notionRSVP = async (rsvp: RSVP): Promise<void> => {
   });
 
   /* Attempt to create new DB entry with RSVP info */
+
+  // TODO: Currently disabled for troubleshooting
+  /*
   await notion.pages.create({
     parent: { database_id: NOTION_DATABASE_ID },
     properties: {
-      Name: {
-        title: [
-          {
-            type: "text",
-            rich_text: { content: `${rsvp.fName} ${rsvp.lName}` },
-          },
-        ],
-      },
+      title: [],
       "Number Attending": {
         number: rsvp.number,
       },
       Email: {
         email: rsvp.email,
       },
-    } as any,
-  });
+    },
+  });*/
 };
