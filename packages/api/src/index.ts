@@ -1,7 +1,8 @@
 import { Router } from "itty-router";
 import { RSVP } from "@weddingflare/lib";
 import { emailRSVP } from "./handlers/email";
-import { notionRSVP } from "./handlers/notion";
+import { addNotionRSVP } from "./handlers/notion";
+import { addKVRSVP, getKVKeys } from "./handlers/workerskv";
 
 const router = Router();
 
@@ -10,18 +11,29 @@ router.post("/api/rsvp", async (request: Request) => {
   const rsvp: RSVP = await request.json();
 
   try {
+    // RSVP > KV
+    if (typeof WF_KV !== "undefined") await addKVRSVP(rsvp);
+
     // RSVP > Notion
-    //TODO: Disabled for troubleshooting
-    //await notionRSVP(rsvp);
+    if (
+      typeof NOTION_API_KEY !== "undefined" ||
+      typeof NOTION_DATABASE_ID !== "undefined"
+    )
+      await addNotionRSVP(rsvp);
 
     //RSVP > Email (Confirmation w/ ical, only fires if a Message is provided in the RSVP)
-    await emailRSVP(rsvp);
+    if (typeof SENDGRID_API_KEY !== "undefined") await emailRSVP(rsvp);
   } catch (err) {
     if (err instanceof Error) {
       console.error(err.message);
       process.exit(1);
     }
   }
+});
+
+router.get("/api/rsvp", async (request: Request) => {
+  const keys = await getKVKeys();
+  return new Response(keys.join("\n"));
 });
 
 router.all("*", () => new Response("Not Found", { status: 404 }));
