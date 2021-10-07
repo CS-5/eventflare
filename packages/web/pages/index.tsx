@@ -36,21 +36,21 @@ export default function Index(): ReactNode {
                 </span>
                 <span className="hidden md:inline-block">&nbsp;-&nbsp;</span>
                 <span className="block text-1xl md:inline-block">
-                  {EVENT_LOCATION}
+                  {EVENT_LOCATION.address}
                 </span>
               </h2>
             </div>
           </header>
 
           {/* Main */}
-          <main className="relative bg-theme-white rounded-t-6xl mt-96 md:mt-64 lg:mt-48 md:rounded-6xl md:shadow-2xl font-serif text-lg leading-8 p-6">
+          <main className="relative bg-theme-white rounded-t-6xl mt-96 md:mt-64 lg:mt-48 md:rounded-6xl md:shadow-2xl font-serif text-lg leading-8 p-8">
             <Section name="RSVP">
               <RSVPSection />
             </Section>
             <Section name="Schedule">
               <ScheduleSection />
             </Section>
-            {!MAPS_API_KEY && (
+            {MAPS_API_KEY && (
               <Section name="Location">
                 <LocationSection mapsApiKey={MAPS_API_KEY} />
               </Section>
@@ -63,6 +63,7 @@ export default function Index(): ReactNode {
           {/* Footer */}
           <footer className="bg-theme-white text-theme-gray md:bg-opacity-0 md:text-theme-accent md:shadow-2xl font-semibold pt-0 pb-5 md:pt-5 text-center">
             <a href="https://github.com/CS-5/weddingflare">
+              {/* BIG Footer isn't clickable (seems to work on mobile) */}
               <span className="block md:inline-block">
                 Made with ❤️ by CS-5,&nbsp;
               </span>

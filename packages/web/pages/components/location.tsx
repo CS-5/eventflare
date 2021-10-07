@@ -1,16 +1,36 @@
 import { FunctionComponent, useState } from "react";
 import { GoogleMap, LoadScript } from "@react-google-maps/api";
+import { EVENT_LOCATION } from "../../constants";
 
 interface Props {
   mapsApiKey: string;
 }
 
 export const LocationSection: FunctionComponent<Props> = ({ mapsApiKey }) => {
-  const [map, setMap] = useState(null);
+  const containerStyle = {
+    width: "100%",
+    height: "400px",
+    borderRadius: "2rem",
+  };
 
+  const center = {
+    lat: EVENT_LOCATION.lat,
+    lng: EVENT_LOCATION.lng,
+  };
+
+  const options = {
+    disableDefaultUI: true,
+  };
+
+  //TODO Link to actual location
   return (
     <LoadScript googleMapsApiKey={mapsApiKey}>
-      <GoogleMap zoom={10} />
+      <GoogleMap
+        zoom={15}
+        mapContainerStyle={containerStyle}
+        center={center}
+        options={options}
+      />
     </LoadScript>
   );
 };

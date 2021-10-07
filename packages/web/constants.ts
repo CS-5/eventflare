@@ -5,9 +5,13 @@ export const SITE_TITLE = "Weddingflare"; // Note: Title is used to set the site
 export const SITE_URL = "https://weddingflare.carsonseese.com";
 
 /* Event Loocation, Date, Time */
-export const EVENT_LOCATION = "Somewhere, USA";
+export const EVENT_LOCATION = {
+  address: "Nothing, AZ",
+  lat: 34.48,
+  lng: -113.3359,
+};
 export const EVENT_TIMEZONE = "America/New_York";
-export const EVENT_DATETIME = new Date("August 01, 2022 12:00");
+export const EVENT_DATETIME = new Date("August 01, 2022 14:00");
 export const EVENT_LOCAL_TIME = EVENT_DATETIME.toLocaleTimeString("en-US", {
   timeZone: EVENT_TIMEZONE,
   hour: "2-digit",
@@ -20,6 +24,26 @@ export const EVENT_LOCAL_DATE = EVENT_DATETIME.toLocaleDateString("en-US", {
   day: "numeric",
   year: "numeric",
 });
+
+/* Schedule */
+export const SCHEDULE = [
+  {
+    time: "August 1st @ 2PM",
+    description: "Arrive and socialize",
+  },
+  {
+    time: "August 1st @ 3PM",
+    description: "Ceremony start",
+  },
+  {
+    time: "...",
+    description: "...",
+  },
+  {
+    time: "August 1st @ 8PM",
+    description: "Party",
+  },
+];
 
 /* Email Message */
 export const EMAIL_FROM = process.env.EMAIL_FROM ?? "";
