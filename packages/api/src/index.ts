@@ -2,7 +2,8 @@ import { Router } from "itty-router";
 import { RSVP } from "@weddingflare/lib";
 import { emailRSVP } from "./handlers/email";
 import { addNotionRSVP } from "./handlers/notion";
-import { addKVRSVP, getKVKeys } from "./handlers/workerskv";
+import { addKVRSVP, getKVRSVP } from "./handlers/workerskv";
+import { v4 as uuid } from "uuid";
 
 const router = Router();
 
@@ -10,7 +11,16 @@ const router = Router();
 router.post("/api/rsvp", async (request: Request) => {
   const rsvp: RSVP = await request.json();
 
+  if (!rsvp) {
+    return {
+      status: 400,
+      body: "RSVP is required",
+    };
+  }
+
   try {
+    rsvp.id = uuid();
+
     // RSVP > KV
     if (typeof WF_KV !== "undefined") await addKVRSVP(rsvp);
 
@@ -28,7 +38,7 @@ router.post("/api/rsvp", async (request: Request) => {
       await emailRSVP(rsvp);
     }
 
-    return new Response("OK", { status: 200 });
+    return new Response(rsvp.id, { status: 200 });
   } catch (err) {
     if (err instanceof Error) {
       console.error(err.message);
@@ -37,9 +47,9 @@ router.post("/api/rsvp", async (request: Request) => {
   }
 });
 
-router.get("/api/rsvp", async (request: Request) => {
-  const keys = await getKVKeys();
-  return new Response(keys.join("\n"));
+router.get("/api/rsvp/:id", async (request: Request) => {
+  const { params } = request as any;
+  return new Response(JSON.stringify(await getKVRSVP(params.id), null, 2));
 });
 
 router.all("*", () => new Response("Not Found", { status: 404 }));

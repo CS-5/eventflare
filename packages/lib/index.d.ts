@@ -1,4 +1,5 @@
 export interface RSVP {
+  id?: string;
   fName: string;
   lName: string;
   number: number;

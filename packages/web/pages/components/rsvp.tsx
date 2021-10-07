@@ -30,7 +30,7 @@ As a reminder, the event is taking place at ${EVENT_LOCATION} on ${EVENT_LOCAL_D
       };
     }
 
-    await fetch("/api/rsvp", {
+    const res = await fetch("/api/rsvp", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -39,6 +39,11 @@ As a reminder, the event is taking place at ${EVENT_LOCATION} on ${EVENT_LOCAL_D
     }).catch((error) => {
       console.log(error);
     });
+
+    if (res) {
+      console.log(res.text());
+    }
+
     setSubmitting(false);
   });
 
