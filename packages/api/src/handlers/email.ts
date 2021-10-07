@@ -6,7 +6,7 @@ const SENDGRID_URL = "https://api.sendgrid.com/v3/mail/send";
 export const emailRSVP = async (rsvp: RSVP): Promise<void> => {
   const message = rsvp.message;
 
-  if (!message || !SENDGRID_API_KEY) return;
+  if (!SENDGRID_API_KEY || !message) return;
 
   /* Create ical invite */
   const ics = ical({
