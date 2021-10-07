@@ -11,19 +11,22 @@ module.exports = {
         "theme-secondary": ["Dancing Script", "cursive"],
       },
       colors: {
-        "theme-primary": colors.red[800],
-        "theme-accent": colors.yellow[500],
+        "theme-primary": colors.yellow[500],
+        "theme-accent": colors.blue[500],
         "theme-gray": colors.gray[500],
         "theme-white": colors.white,
       },
       backgroundImage: {
-        "theme-background": "url('/image/background.png')",
+        "theme-background": "url('/image/background.jpg')",
       },
       width: {
         "48rem": "48rem",
       },
       borderRadius: {
         "6xl": "3rem",
+      },
+      dropShadow: {
+        "4xl": "--tw-drop-shadow: drop-shadow(0 35px 35px rgba(0, 0, 0, 0.2));",
       },
     },
   },
