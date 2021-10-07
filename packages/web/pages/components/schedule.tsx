@@ -1,15 +1,20 @@
 import { FunctionComponent } from "react";
+import { SCHEDULE } from "../../constants";
 
 export const ScheduleSection: FunctionComponent = () => {
+  //TODO Make this table work
   return (
-    <>
-      This is placeholder text and will be replaced when the website goes live.
-      This is placeholder text and will be replaced when the website goes live.
-      Placeholder text. This is placeholder text. Placeholder text. Placeholder
-      text fills the space before the real content has been input. Using
-      placeholder text is common in the industry and means that the site is
-      being built to realistic standards. Placeholder text fills the space
-      before the real content has been input.
-    </>
+    <table>
+      <tr>
+        <th>Time</th>
+        <th>Details</th>
+      </tr>
+      {SCHEDULE.forEach(({ time, description }) => {
+        <tr>
+          <td>{time}</td>
+          <td>{description}</td>
+        </tr>;
+      })}
+    </table>
   );
 };
