@@ -6,11 +6,17 @@ The goal with the API portion of this project is to create a (hopefully) very si
 
 This lack of a security implmentation is intentional, as this project is intended to be a functional boilerplate, rather than a fully implmented SaaS solution.
 
-## Current Functionality
+## Handlers
+
+All handlers work based on a best-effort model. Therefore if an enviornment variable is not defined, a required object is missing, or there is an error upstream - the handler will quietly fail. This response, however, could easily be modified to return an error to the frontend, should that functionality be desired.
+
+### Workers KV
+
+Log RSVP respones in Workers KV. May eventually create an "admin" UI to view responses in the future
 
 ### Email
 
-If a `Message` object is included in the RSVP POST request, create an ICS calendar invite and send via SendGrid. No `message` property on the POST content automaticlly disables email sending.
+If a `Message` object is included in the RSVP POST request, a confirmation email message is sent. No `message` property on the POST content automaticlly disables email sending.
 
 #### Secret
 
@@ -29,13 +35,12 @@ Enter the RSVP form responses into a Notion database.
 
 - [ ] Support more endpoints for submitting notifications/updating documents
 - [ ] Implement some sort of security layer to get rid of spam submissions (_especially_ for email)
-- [ ] Use Workers KV to store responses instead of relying on something like Notion
 
 ## Development and Configuration
 
 1. As described in the project root's [README](https://github.com/CS-5/weddingflare), Lerna is used to manage shared dependencies and handle publishing. To install dependencies, first run: `npx lerna bootstrap` from the project root. _Note: This command doesn't always seem to work (still learning exactly how to do monorepos) so if there are missing dependencies, `npm install` usually fixes them._
 
-2. Check out `.env.example` for the possible enviornment variables. If a variable is not set, that piece of code will not be enabled. Variables can be sent to Cloudflare Workers as secrets using `wrangler secret put ENV_VAR_NAME`.
+2. Check out `.env.example` for the possible enviornment variables. If a variable is not set, that piece of code will not be enabled. Secrets can be sent to Cloudflare Workers as secrets using `wrangler secret put ENV_VAR_NAME`.
 
 3. Customize the code as-needed!
 

@@ -1,39 +1,28 @@
 import { Message } from "@weddingflare/lib";
 
 /* Overview */
-export const title = "Jack & Jill";
-export const location = "Somewhere, USA";
-export const url = "https://weddingflare.carsonseese.com";
+export const SITE_TITLE = "Weddingflare"; // Note: Title is used to set the site title and from name (email)
+export const SITE_URL = "https://weddingflare.carsonseese.com";
 
-/* Date/Time */
-const timezone = "America/New_York";
-export const startDate = new Date("August 01, 2022 12:00");
-export const endDate = new Date("August 01, 2022 18:00");
-export const localDate = startDate.toLocaleDateString("en-US", {
-  timeZone: timezone,
+/* Event Loocation, Date, Time */
+export const EVENT_LOCATION = "Somewhere, USA";
+export const EVENT_TIMEZONE = "America/New_York";
+export const EVENT_DATETIME = new Date("August 01, 2022 12:00");
+export const EVENT_LOCAL_TIME = EVENT_DATETIME.toLocaleTimeString("en-US", {
+  timeZone: EVENT_TIMEZONE,
+  hour: "2-digit",
+  minute: "2-digit",
+  hour12: true,
+});
+export const EVENT_LOCAL_DATE = EVENT_DATETIME.toLocaleDateString("en-US", {
+  timeZone: EVENT_TIMEZONE,
   month: "long",
   day: "numeric",
   year: "numeric",
 });
 
 /* Email Message */
-export const message: Message | undefined = {
-  from: process.env.MAIL_FROM ?? "",
-  subject: "Thanks for submitting your RSVP!",
-  event: {
-    calendarName: "Weddingflare",
-    eventName: title,
-    start: startDate,
-    end: endDate,
-    desc: `Please join us on ${localDate} for ${title}'s wedding!'`,
-    location: location,
-    organizer: "Weddingflare",
-    timezone: timezone,
-    url: "",
-  },
-};
-
-console.log(JSON.stringify(message));
+export const EMAIL_FROM = process.env.EMAIL_FROM ?? "";
 
 /* Other */
-export const mapsAPIKey = process.env.MAPS_API_KEY ?? "";
+export const MAPS_API_KEY = process.env.MAPS_API_KEY ?? "";

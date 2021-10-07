@@ -15,7 +15,7 @@ The goal with the web frontend is to create an easily modifiable, flexible, and 
 
 1. As described in the project root's [README](https://github.com/CS-5/weddingflare), Lerna is used to manage shared dependencies and handle publishing. To install dependencies, first run: `npx lerna bootstrap` from the project root. _Note: This command doesn't always seem to work (still learning exactly how to do monorepos) so if there are missing dependencies, `npm install` usually fixes them._
 
-2. Update the constants in `pages/index.tsx` and the enviornment variables from `.env.example` to set up the frontend.
+2. Update the constants in `constants.ts` and the enviornment variables from `.env.example` to set up the frontend (includes setting up the type/format of the email sending function)
 
 3. Update any of the custom `theme-` extensions in `tailwind.config.js` to customize colors, fonts, and more across the site.
 

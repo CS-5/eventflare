@@ -1,7 +1,13 @@
 import { FunctionComponent, useState } from "react";
 import { RSVP } from "@weddingflare/lib";
 import { useForm } from "react-hook-form";
-import { message } from "../../constants";
+import {
+  EMAIL_FROM,
+  EVENT_LOCAL_DATE,
+  SITE_TITLE,
+  EVENT_LOCATION,
+  EVENT_LOCAL_TIME,
+} from "../../constants";
 
 export const RSVPSection: FunctionComponent = () => {
   const { register, handleSubmit } = useForm<RSVP>();
@@ -10,8 +16,19 @@ export const RSVPSection: FunctionComponent = () => {
   const onSubmit = handleSubmit(async (data) => {
     setSubmitting(true);
 
-    // Set message if email was supplied
-    if (data.email) data.message = message;
+    // Set message if email was recorded in the form and if EMAIL_FROM was configured at build time
+    if (EMAIL_FROM && data.email) {
+      data.message = {
+        from: {
+          name: SITE_TITLE,
+          email: EMAIL_FROM,
+        },
+        subject: "Weddingflare RSVP Confirmation!",
+        body: `${data.fName}, thanks for your RSVP. This email is just confirming that we recieved it.
+
+As a reminder, the event is taking place at ${EVENT_LOCATION} on ${EVENT_LOCAL_DATE} at ${EVENT_LOCAL_TIME}. Looking forward to seeing you there!`,
+      };
+    }
 
     await fetch("/api/rsvp", {
       method: "POST",

@@ -7,19 +7,10 @@ export interface RSVP {
 }
 
 export interface Message {
-  from: string;
+  from: {
+    name: string;
+    email: string;
+  };
   subject: string;
-  event: Event;
-}
-
-export interface Event {
-  calendarName: string;
-  eventName: string;
-  start: Date;
-  end: Date;
-  timezone: string;
-  organizer: string;
-  desc?: string;
-  location?: string;
-  url?: string;
+  body: string;
 }

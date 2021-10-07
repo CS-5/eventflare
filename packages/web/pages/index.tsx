@@ -5,13 +5,18 @@ import { RegistrySection } from "./components/registry";
 import { RSVPSection } from "./components/rsvp";
 import { ScheduleSection } from "./components/schedule";
 import { Section } from "./components/section";
-import { localDate, mapsAPIKey, location } from "../constants";
+import {
+  EVENT_LOCAL_DATE,
+  MAPS_API_KEY,
+  EVENT_LOCATION,
+  SITE_TITLE,
+} from "../constants";
 
 export default function Index(): ReactNode {
   return (
     <>
       <Head>
-        <title>Weddingflare</title>
+        <title>{SITE_TITLE}</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
       <div className="h-auto 2xl:h-screen bg-theme-background bg-cover bg-no-repeat bg-left-top bg-fixed overflow-auto">
@@ -20,14 +25,16 @@ export default function Index(): ReactNode {
           {/* Header */}
           <header className="z-0 fixed h-screen left-2/4 -translate-x-1/2  text-center md:mt-0">
             <h1 className="font-serif font-bold text-6xl text-theme-primary">
-              <span className="block md:inline-block">Jack</span>
+              <span className="block md:inline-block">John</span>
               <span className="block md:inline-block">&nbsp;&&nbsp;</span>
-              <span className="block md:inline-block">Jill</span>
+              <span className="block md:inline-block">Jane</span>
             </h1>
             <h2 className="mt-2 font-theme-secondary font-normal text-2xl md:text-3xl">
-              <span className="block md:inline-block">{localDate}</span>
+              <span className="block md:inline-block">{EVENT_LOCAL_DATE}</span>
               <span className="hidden md:inline-block">&nbsp;-&nbsp;</span>
-              <span className="block text-1xl md:inline-block">{location}</span>
+              <span className="block text-1xl md:inline-block">
+                {EVENT_LOCATION}
+              </span>
             </h2>
           </header>
 
@@ -39,9 +46,9 @@ export default function Index(): ReactNode {
             <Section name="Schedule">
               <ScheduleSection />
             </Section>
-            {mapsAPIKey && (
+            {MAPS_API_KEY && ( //BUG An empty API key still causes this section to render
               <Section name="Location">
-                <LocationSection mapsApiKey={mapsAPIKey} />
+                <LocationSection mapsApiKey={MAPS_API_KEY} />
               </Section>
             )}
             <Section name="Registry">
