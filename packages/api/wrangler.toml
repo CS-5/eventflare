@@ -10,20 +10,15 @@ zone_id = "60e63062a969300c8e4b39a5534da959"
 route = ""
 workers_dev = true
 
-vars = { PRODUCTION = "false" }
-
 # KV Settings
 kv_namespaces = [ 
-  { binding = "WF_DEV_KV", id = "3a91be828d0f4b4da7c5af216f45df29" },
-  { binding = "WF_PROD_KV", id = "2ecfe0405fb548aeac37c58688d40cf5" }
+  { binding = "WF_KV", id = "e319d3d184b74e67a277aca2bd12e08f", preview_id = "b4955877edf74f65a774578f0dba939a" }
 ]
 
 [env.prod]
 name = "weddingflare-api"
 zone_id = "6742fb7575e78ff485737fbab12254af"
 route = "weddingflare.carsonseese.com/api/*"
-
-vars = { PRODUCTION = "true" }
 
 [build]
 command = "npm run build"
