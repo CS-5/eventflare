@@ -13,13 +13,13 @@ export interface Message {
 }
 
 export interface Event {
-  calendar: string;
+  calendarName: string;
+  eventName: string;
   start: Date;
   end: Date;
-  name: string;
-  desc: string;
-  location: string;
-  url: string;
-  organizer: string;
   timezone: string;
+  organizer: string;
+  desc?: string;
+  location?: string;
+  url?: string;
 }

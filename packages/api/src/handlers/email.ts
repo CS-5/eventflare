@@ -6,20 +6,20 @@ const SENDGRID_URL = "https://api.sendgrid.com/v3/mail/send";
 export const emailRSVP = async (rsvp: RSVP): Promise<void> => {
   const message = rsvp.message;
 
-  if (!SENDGRID_API_KEY || !message) return;
+  if (!SENDGRID_API_KEY || !message?.from || !rsvp.email) return;
 
   /* Create ical invite */
   const ics = ical({
-    name: message.event.calendar,
+    name: message.event.calendarName,
     timezone: message.event.timezone,
   }).createEvent({
     start: message.event.start,
     end: message.event.end,
-    summary: message.event.name,
+    summary: message.event.eventName,
     description: message.event.desc,
     location: message.event.location,
     url: message.event.url,
-    organizer: message.event.organizer,
+    //organizer: message.event.organizer,
   });
 
   /* Create message */
@@ -30,8 +30,10 @@ export const emailRSVP = async (rsvp: RSVP): Promise<void> => {
     content: [{ type: "text/plain", value: ics.toString() }],
   };
 
+  console.log(JSON.stringify(msg));
+
   /* Send message */
-  await fetch(SENDGRID_URL, {
+  const res = await fetch(SENDGRID_URL, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -39,4 +41,5 @@ export const emailRSVP = async (rsvp: RSVP): Promise<void> => {
     },
     body: JSON.stringify(msg),
   });
+  console.log(JSON.stringify(await res.json()));
 };

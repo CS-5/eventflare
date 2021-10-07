@@ -1,6 +1,7 @@
-import { FunctionComponent, useEffect, useState } from "react";
+import { FunctionComponent, useState } from "react";
 import { RSVP } from "@weddingflare/lib";
 import { useForm } from "react-hook-form";
+import { message } from "../../constants";
 
 export const RSVPSection: FunctionComponent = () => {
   const { register, handleSubmit } = useForm<RSVP>();
@@ -8,6 +9,9 @@ export const RSVPSection: FunctionComponent = () => {
 
   const onSubmit = handleSubmit(async (data) => {
     setSubmitting(true);
+
+    // Set message if email was supplied
+    if (data.email) data.message = message;
 
     await fetch("/api/rsvp", {
       method: "POST",

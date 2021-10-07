@@ -5,11 +5,7 @@ import { RegistrySection } from "./components/registry";
 import { RSVPSection } from "./components/rsvp";
 import { ScheduleSection } from "./components/schedule";
 import { Section } from "./components/section";
-
-const date = new Date("August 01, 2022 12:00");
-const location = "Somewhere, USA";
-
-const mapsAPIKey = process.env.MAPS_API_KEY ?? "";
+import { localDate, mapsAPIKey, location } from "../constants";
 
 export default function Index(): ReactNode {
   return (
@@ -29,13 +25,7 @@ export default function Index(): ReactNode {
               <span className="block md:inline-block">Jill</span>
             </h1>
             <h2 className="mt-2 font-theme-secondary font-normal text-2xl md:text-3xl">
-              <span className="block md:inline-block">
-                {date.toLocaleDateString("en-US", {
-                  month: "long",
-                  day: "numeric",
-                  year: "numeric",
-                })}
-              </span>
+              <span className="block md:inline-block">{localDate}</span>
               <span className="hidden md:inline-block">&nbsp;-&nbsp;</span>
               <span className="block text-1xl md:inline-block">{location}</span>
             </h2>

@@ -15,14 +15,18 @@ router.post("/api/rsvp", async (request: Request) => {
     if (typeof WF_KV !== "undefined") await addKVRSVP(rsvp);
 
     // RSVP > Notion
-    if (
+    // TODO: Disabled for fixing
+    /*if (
       typeof NOTION_API_KEY !== "undefined" ||
       typeof NOTION_DATABASE_ID !== "undefined"
     )
       await addNotionRSVP(rsvp);
+    */
 
     //RSVP > Email (Confirmation w/ ical, only fires if a Message is provided in the RSVP)
-    if (typeof SENDGRID_API_KEY !== "undefined") await emailRSVP(rsvp);
+    if (typeof SENDGRID_API_KEY !== "undefined") {
+      await emailRSVP(rsvp);
+    }
 
     return new Response("OK", { status: 200 });
   } catch (err) {
