@@ -26,7 +26,7 @@ export const RSVPSection: FunctionComponent = () => {
         subject: "Weddingflare RSVP Confirmation!",
         body: `${data.fName}, thanks for your RSVP. This email is just confirming that we recieved it.
 
-As a reminder, the event is taking place at ${EVENT_LOCATION} on ${EVENT_LOCAL_DATE} at ${EVENT_LOCAL_TIME}. Looking forward to seeing you there!`,
+As a reminder, the event is taking place at ${EVENT_LOCATION.address} on ${EVENT_LOCAL_DATE} at ${EVENT_LOCAL_TIME}. Looking forward to seeing you there!`,
       };
     }
 
@@ -40,8 +40,8 @@ As a reminder, the event is taking place at ${EVENT_LOCATION} on ${EVENT_LOCAL_D
       console.log(error);
     });
 
-    if (res) {
-      console.log(res.text());
+    if (res && res.ok) {
+      console.log(await res.text());
     }
 
     setSubmitting(false);

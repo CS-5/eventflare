@@ -25,8 +25,9 @@ router.post("/api/rsvp", async (request: Request) => {
     if (typeof WF_KV !== "undefined") await addKVRSVP(rsvp);
 
     // RSVP > Notion
-    // TODO: Disabled for fixing
-    /*if (
+    // TODO: Fix notion
+    /*
+    if (
       typeof NOTION_API_KEY !== "undefined" ||
       typeof NOTION_DATABASE_ID !== "undefined"
     )
@@ -38,18 +39,30 @@ router.post("/api/rsvp", async (request: Request) => {
       await emailRSVP(rsvp);
     }
 
-    return new Response(rsvp.id, { status: 200 });
+    return new Response(JSON.stringify({ id: rsvp.id }), { status: 200 });
   } catch (err) {
     if (err instanceof Error) {
       console.error(err.message);
-      return new Response("Error", { status: 500 });
+      return new Response(
+        JSON.stringify({
+          message: "Worker Error",
+          error: JSON.parse(err.message),
+        }),
+        { status: 500 },
+      );
     }
   }
 });
 
 router.get("/api/rsvp/:id", async (request: Request) => {
   const { params } = request as any;
-  return new Response(JSON.stringify(await getKVRSVP(params.id), null, 2));
+
+  return new Response(JSON.stringify(await getKVRSVP(params.id), null, 2), {
+    status: 200,
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
 });
 
 router.all("*", () => new Response("Not Found", { status: 404 }));

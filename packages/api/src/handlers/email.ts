@@ -18,7 +18,7 @@ export const emailRSVP = async (rsvp: RSVP): Promise<void> => {
   };
 
   // Send it!
-  await fetch(SENDGRID_URL, {
+  const res = await fetch(SENDGRID_URL, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -26,4 +26,8 @@ export const emailRSVP = async (rsvp: RSVP): Promise<void> => {
     },
     body: JSON.stringify(msg),
   });
+
+  if (!res.ok) {
+    throw Error(await res.text());
+  }
 };
