@@ -1,4 +1,4 @@
-name = "weddingflare-api-dev"
+name = "eventflare-api-dev"
 
 # Build Configuration
 type = "javascript"
@@ -12,13 +12,13 @@ workers_dev = true
 
 # KV Settings
 kv_namespaces = [ 
-  { binding = "WF_KV", id = "e319d3d184b74e67a277aca2bd12e08f", preview_id = "b4955877edf74f65a774578f0dba939a" }
+  { binding = "EF_KV", id = "5f20b350e7334a74a948610d18c7e1bd", preview_id = "726ac3b7103841c386018cf19584e48f" }
 ]
 
 [env.prod]
-name = "weddingflare-api"
+name = "eventflare-api"
 zone_id = "6742fb7575e78ff485737fbab12254af"
-route = "weddingflare.carsonseese.com/api/*"
+route = "eventflare.carsonseese.com/api/*"
 
 [build]
 command = "npm run build"

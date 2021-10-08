@@ -1,7 +1,6 @@
 import { ReactNode } from "react";
 import Head from "next/head";
 import { LocationSection } from "./components/location";
-import { RegistrySection } from "./components/registry";
 import { RSVPSection } from "./components/rsvp";
 import { ScheduleSection } from "./components/schedule";
 import { Section } from "./components/section";
@@ -59,7 +58,7 @@ export default function Index(): ReactNode {
 
           {/* Footer */}
           <footer className="bg-theme-white text-theme-gray md:bg-opacity-0 md:text-theme-accent md:shadow-2xl font-semibold pt-0 pb-5 md:pt-5 text-center">
-            <a href="https://github.com/CS-5/weddingflare">
+            <a href="https://github.com/CS-5/eventflare">
               {/* BIG Footer isn't clickable (seems to work on mobile) */}
               <span className="block md:inline-block">
                 Made with ❤️ by CS-5,&nbsp;

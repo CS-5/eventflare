@@ -1,15 +1,16 @@
-import { RSVP } from "@weddingflare/lib";
+import { RSVP } from "@eventflare/lib";
 import { createObjectCsvStringifier } from "csv-writer";
 
 export const addKVRSVP = async (rsvp: RSVP): Promise<void> => {
   if (!rsvp.id) return;
-  return await WF_KV.put(rsvp.id, JSON.stringify(rsvp));
+  return await EF_KV.put(rsvp.id, JSON.stringify(rsvp));
 };
 
 export const getKVRSVP = async (key: string): Promise<RSVP | null> => {
-  return await WF_KV.get<RSVP>(key, "json");
+  return await EF_KV.get<RSVP>(key, "json");
 };
 
+/*
 export const getKVCSV = async (): Promise<string> => {
   const csvWriter = createObjectCsvStringifier({
     header: [
@@ -32,3 +33,4 @@ export const getKVCSV = async (): Promise<string> => {
   // csvWriter.getHeaderString();
   // csvWriter.stringifyRecords(records);
 };
+*/

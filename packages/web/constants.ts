@@ -1,8 +1,6 @@
-import { Message } from "@weddingflare/lib";
-
 /* Overview */
-export const SITE_TITLE = "Weddingflare"; // Note: Title is used to set the site title and from name (email)
-export const SITE_URL = "https://weddingflare.carsonseese.com";
+export const SITE_TITLE = "Eventflare"; // Note: Title is used to set the site title and from name (email)
+export const SITE_URL = "https://Eventflare.carsonseese.com";
 
 /* Event Loocation, Date, Time */
 export const EVENT_LOCATION = {
@@ -33,7 +31,7 @@ export const SCHEDULE = [
   },
   {
     time: "August 1st @ 3PM",
-    description: "Ceremony start",
+    description: "Event start",
   },
   {
     time: "...",

@@ -1,4 +1,4 @@
-# Weddingflare
+# Eventflare
 
 ## Introduction
 
@@ -21,4 +21,4 @@ If you happened to stumble upon this project and think it's neat, see ways it ca
 
 ## Development and Configuration
 
-See the respective README's in [`packages/api`](https://github.com/CS-5/weddingflare/tree/main/packages/api) and [`packages/web`](https://github.com/CS-5/weddingflare/tree/main/packages/web) for more information about those specific packages. While you're here though, make sure to run `npx lerna bootstrap` to install the dependencies for all packages.
+See the respective README's in [`packages/api`](https://github.com/CS-5/eventflare/tree/main/packages/api) and [`packages/web`](https://github.com/CS-5/eventflare/tree/main/packages/web) for more information about those specific packages. While you're here though, make sure to run `npx lerna bootstrap` to install the dependencies for all packages.

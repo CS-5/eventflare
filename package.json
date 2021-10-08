@@ -1,5 +1,5 @@
 {
-  "name": "weddingflare",
+  "name": "eventflare",
   "private": true,
   "dependencies": {
     "api": "file:packages/api",

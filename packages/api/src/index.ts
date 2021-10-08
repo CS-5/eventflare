@@ -1,5 +1,5 @@
 import { Router } from "itty-router";
-import { RSVP } from "@weddingflare/lib";
+import { RSVP } from "@eventflare/lib";
 import { emailRSVP } from "./handlers/email";
 import { addNotionRSVP } from "./handlers/notion";
 import { addKVRSVP, getKVRSVP, getKVCSV } from "./handlers/workerskv";
@@ -22,7 +22,7 @@ router.post("/api/rsvp", async (request: Request) => {
     rsvp.id = uuid();
 
     // RSVP > KV
-    if (typeof WF_KV !== "undefined") await addKVRSVP(rsvp);
+    if (typeof EF_KV !== "undefined") await addKVRSVP(rsvp);
 
     // RSVP > Notion
     // TODO: Fix notion
@@ -66,7 +66,7 @@ router.get("/api/rsvp/:id", async (request: Request) => {
 });
 
 router.get("/api/rsvp/csv", async (request: Request) => {
-  return new Response(await getKVCSV()), {
+  return new Response(await getKVCSV(), {
     status: 200,
     headers: {
       "Content-Type": "text/csv",

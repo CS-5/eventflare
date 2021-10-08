@@ -1,5 +1,5 @@
 {
-  "name": "@weddingflare/api",
+  "name": "@eventflare/api",
   "version": "1.0.0",
   "private": true,
   "main": "dist/worker.js",
@@ -32,7 +32,7 @@
   },
   "dependencies": {
     "@notionhq/client": "^0.4.1",
-    "@weddingflare/lib": "file:../lib",
+    "@eventflare/lib": "file:../lib",
     "csv-writer": "^1.6.0",
     "itty-router": "^2.4.4",
     "uuid": "^8.3.2"

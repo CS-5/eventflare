@@ -1,4 +1,4 @@
-import { RSVP } from "@weddingflare/lib";
+import { RSVP } from "@eventflare/lib";
 
 const SENDGRID_URL = "https://api.sendgrid.com/v3/mail/send";
 

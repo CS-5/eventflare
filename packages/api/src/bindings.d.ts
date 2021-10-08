@@ -1,7 +1,7 @@
 export {};
 
 declare global {
-  const WF_KV: KVNamespace;
+  const EF_KV: KVNamespace;
 
   const SENDGRID_API_KEY: string;
 

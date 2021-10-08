@@ -1,5 +1,5 @@
 import { FunctionComponent, useState } from "react";
-import { RSVP } from "@weddingflare/lib";
+import { RSVP } from "@eventflare/lib";
 import { useForm } from "react-hook-form";
 import {
   EMAIL_FROM,
@@ -29,7 +29,7 @@ export const RSVPSection: FunctionComponent = () => {
           name: SITE_TITLE,
           email: EMAIL_FROM,
         },
-        subject: "Weddingflare RSVP Confirmation!",
+        subject: "Eventflare RSVP Confirmation!",
         body: `${data.fName}, thanks for your RSVP. This email is just confirming that we recieved it.
 
 As a reminder, the event is taking place at ${EVENT_LOCATION.address} on ${EVENT_LOCAL_DATE} at ${EVENT_LOCAL_TIME}. Looking forward to seeing you there!`,

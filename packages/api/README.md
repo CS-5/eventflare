@@ -1,4 +1,4 @@
-# Weddingflare: API
+# Eventflare: API
 
 ## Overview
 
@@ -38,7 +38,7 @@ Enter the RSVP form responses into a Notion database.
 
 ## Development and Configuration
 
-1. As described in the project root's [README](https://github.com/CS-5/weddingflare), Lerna is used to manage shared dependencies and handle publishing. To install dependencies, first run: `npx lerna bootstrap` from the project root. _Note: This command doesn't always seem to work (still learning exactly how to do monorepos) so if there are missing dependencies, `npm install` usually fixes them._
+1. As described in the project root's [README](https://github.com/CS-5/eventflare), Lerna is used to manage shared dependencies and handle publishing. To install dependencies, first run: `npx lerna bootstrap` from the project root. _Note: This command doesn't always seem to work (still learning exactly how to do monorepos) so if there are missing dependencies, `npm install` usually fixes them._
 
 2. Check out `.env.example` for the possible enviornment variables. If a variable is not set, that piece of code will not be enabled. Secrets can be sent to Cloudflare Workers as secrets using `wrangler secret put ENV_VAR_NAME`.
 

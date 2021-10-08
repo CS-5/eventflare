@@ -1,8 +1,8 @@
-# Weddingflare: Frontend
+# Eventflare: Web
 
 ## Overview
 
-The goal with the web frontend is to create an easily modifiable, flexible, and lightweight event page, with support for an RSVP form, schedule of events, location, and more. The RSVP form submits its content to the Weddingflare API, to be handled in whatever way makes the most sense.
+The goal with the web frontend is to create an easily modifiable, flexible, and lightweight event page, with support for an RSVP form, schedule of events, location, and more. The RSVP form submits its content to the Eventflare API, to be handled in whatever way makes the most sense.
 
 ## To-Do
 
@@ -13,7 +13,7 @@ The goal with the web frontend is to create an easily modifiable, flexible, and 
 
 ## Development and Configuration
 
-1. As described in the project root's [README](https://github.com/CS-5/weddingflare), Lerna is used to manage shared dependencies and handle publishing. To install dependencies, first run: `npx lerna bootstrap` from the project root. _Note: This command doesn't always seem to work (still learning exactly how to do monorepos) so if there are missing dependencies, `npm install` usually fixes them._
+1. As described in the project root's [README](https://github.com/CS-5/eventflare), Lerna is used to manage shared dependencies and handle publishing. To install dependencies, first run: `npx lerna bootstrap` from the project root. _Note: This command doesn't always seem to work (still learning exactly how to do monorepos) so if there are missing dependencies, `npm install` usually fixes them._
 
 2. Update the constants in `constants.ts` and the enviornment variables from `.env.example` to set up the frontend (includes setting up the type/format of the email sending function)
 
