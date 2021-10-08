@@ -55,9 +55,6 @@ export default function Index(): ReactNode {
                 <LocationSection mapsApiKey={MAPS_API_KEY} />
               </Section>
             )}
-            <Section name="Registry">
-              <RegistrySection />
-            </Section>
           </main>
 
           {/* Footer */}
