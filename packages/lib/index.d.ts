@@ -15,3 +15,10 @@ export interface Message {
   subject: string;
   body: string;
 }
+
+export interface APIResponse {
+  success: boolean;
+  result?: any;
+  error?: Error;
+  message?: string;
+}

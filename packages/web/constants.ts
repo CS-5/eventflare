@@ -44,7 +44,7 @@ export const SCHEDULE = [
 ];
 
 /* Email Message */
-export const EMAIL_FROM = process.env.EMAIL_FROM ?? "";
+export const EMAIL_FROM = "eventflare@mail.seese.xyz";
 
 /* Other */
 export const MAPS_API_KEY = process.env.MAPS_API_KEY ?? "";

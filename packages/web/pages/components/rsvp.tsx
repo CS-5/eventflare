@@ -1,5 +1,5 @@
 import { FunctionComponent, useState } from "react";
-import { RSVP } from "@eventflare/lib";
+import { APIResponse, RSVP } from "@eventflare/lib";
 import { useForm } from "react-hook-form";
 import {
   EMAIL_FROM,
@@ -43,11 +43,11 @@ As a reminder, the event is taking place at ${EVENT_LOCATION.address} on ${EVENT
       },
       body: JSON.stringify(data),
     }).catch((error) => {
-      console.log(error);
+      console.error(error);
     });
 
     if (res && res.ok) {
-      console.log(await res.text());
+      console.log(JSON.stringify(await res.json(), null, 2));
     }
 
     setSubmitting(false);
