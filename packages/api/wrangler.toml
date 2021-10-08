@@ -21,6 +21,6 @@ zone_id = "6742fb7575e78ff485737fbab12254af"
 route = "eventflare.carsonseese.com/api/*"
 
 [build]
-command = "npm run build"
+command = "npm install && npm run build"
 [build.upload]
 format = "service-worker"
