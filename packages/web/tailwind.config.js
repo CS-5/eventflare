@@ -3,17 +3,17 @@ const colors = require("tailwindcss/colors");
 module.exports = {
   purge: ["./pages/**/*.{js,ts,jsx,tsx}", "./components/**/*.{js,ts,jsx,tsx}"],
   mode: "jit",
-  darkMode: false,
+  darkMode: "media",
   theme: {
     extend: {
       fontFamily: {
-        "theme-primary": ["Merriweather", "serif"],
-        "theme-secondary": ["Dancing Script", "cursive"],
+        "theme-primary": ["Oswald", "sans-serif"],
+        "theme-secondary": ["Roboto", "sans-serif"],
       },
       colors: {
-        "theme-primary": colors.yellow[500],
-        "theme-accent": colors.blue[600],
-        "theme-gray": colors.gray[500],
+        "theme-primary": colors.orange[500],
+        "theme-accent": colors.blue[500],
+        "theme-gray": colors.gray[700],
         "theme-white": colors.white,
       },
       backgroundImage: {
@@ -25,13 +25,10 @@ module.exports = {
       borderRadius: {
         "6xl": "3rem",
       },
-      dropShadow: {
-        "4xl": "--tw-drop-shadow: drop-shadow(0 35px 35px rgba(0, 0, 0, 0.2));",
-      },
     },
   },
   variants: {
     extend: {},
   },
-  plugins: [require("@tailwindcss/forms")],
+  plugins: [require("@tailwindcss/forms"), require("tailwindcss-textshadow")],
 };

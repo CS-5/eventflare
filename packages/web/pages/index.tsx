@@ -23,43 +23,37 @@ export default function Index(): ReactNode {
         <div className="m-auto md:w-3/5 lg:w-48rem pt-20">
           {/* Header */}
           <header className="z-0 fixed h-screen left-2/4 -translate-x-1/2 text-center md:mt-0">
-            <div className="bg-theme-white rounded-6xl glow py-4 px-6 shadow-2xl">
-              <h1 className="font-serif font-bold text-6xl text-theme-primary drop-shadow-4xl">
-                <span className="block md:inline-block">John</span>
-                <span className="block md:inline-block">&nbsp;&&nbsp;</span>
-                <span className="block md:inline-block">Jane</span>
-              </h1>
-              <h2 className="mt-2 font-theme-secondary font-normal text-2xl md:text-3xl text-theme-accent">
-                <span className="block md:inline-block">
-                  {EVENT_LOCAL_DATE}
-                </span>
-                <span className="hidden md:inline-block">&nbsp;-&nbsp;</span>
-                <span className="block text-1xl md:inline-block">
-                  {EVENT_LOCATION.address}
-                </span>
-              </h2>
-            </div>
+            <h1 className="font-theme-primary font-semibold text-6xl text-theme-primary text-shadow-xl">
+              <span className="block md:inline-block">Eventflare</span>
+            </h1>
+            <h2 className="mt-2 font-theme-primary font-extralight text-2xl md:text-3xl text-theme-white">
+              <span className="block md:inline-block">{EVENT_LOCAL_DATE}</span>
+              <span className="hidden md:inline-block">&nbsp;-&nbsp;</span>
+              <span className="block text-1xl md:inline-block">
+                {EVENT_LOCATION.address}
+              </span>
+            </h2>
           </header>
 
           {/* Main */}
-          <main className="relative bg-theme-white rounded-t-6xl mt-96 md:mt-64 lg:mt-48 md:rounded-6xl md:shadow-2xl font-serif text-lg leading-8 p-8">
-            <Section name="RSVP">
+          <main className="relative bg-theme-white dark:bg-theme-gray text-theme-black dark:text-theme-white rounded-t-6xl mt-96 md:mt-64 lg:mt-48 md:rounded-6xl md:shadow-2xl text-lg leading-8 p-8 text-center">
+            <Section name="RSVP" className="pb-6">
               <RSVPSection />
             </Section>
-            <Section name="Schedule">
+            <Section name="Schedule" className="pb-6">
               <ScheduleSection />
             </Section>
             {MAPS_API_KEY && (
-              <Section name="Location">
+              <Section name="Location" className="pb-6 drop-shadow-2xl">
                 <LocationSection mapsApiKey={MAPS_API_KEY} />
               </Section>
             )}
           </main>
 
           {/* Footer */}
-          <footer className="bg-theme-white text-theme-gray md:bg-opacity-0 md:text-theme-accent md:shadow-2xl font-semibold pt-0 pb-5 md:pt-5 text-center">
+          <footer className="bg-theme-white dark:bg-theme-gray text-theme-gray dark:text-theme-white md:bg-opacity-0 md:text-theme-white md:shadow-2xl pt-0 pb-5 md:pt-5 text-center">
             <a href="https://github.com/CS-5/eventflare">
-              {/* BIG Footer isn't clickable (seems to work on mobile) */}
+              {/* Footer isn't clickable (seems to work on mobile) */}
               <span className="block md:inline-block">
                 Made with ❤️ by CS-5,&nbsp;
               </span>

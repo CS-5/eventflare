@@ -60,13 +60,13 @@ As a reminder, the event is taking place at ${EVENT_LOCATION.address} on ${EVENT
         <div className="flex flex-wrap -mx-3 mb-4">
           <div className="w-full md:w-1/2 px-3 mb-4 md:mb-0">
             <label
-              className="block uppercase tracking-wide text-s font-bold mb-2"
+              className="block uppercase tracking-wide text-s font-bold"
               htmlFor="fName"
             >
               First Name
             </label>
             <input
-              className="appearance-none block w-full bg-gray-50 border border-theme-secondary rounded-2xl py-3 px-4 leading-tight focus:outline-none focus:bg-white"
+              className="appearance-none text-black block w-full bg-gray-50 border border-theme-secondary rounded-2xl py-3 px-4 leading-tight focus:outline-none focus:bg-white"
               id="fName"
               type="text"
               {...register("fName")}
@@ -75,13 +75,13 @@ As a reminder, the event is taking place at ${EVENT_LOCATION.address} on ${EVENT
           </div>
           <div className="w-full md:w-1/2 px-3">
             <label
-              className="block uppercase tracking-wide text-s font-bold mb-2"
+              className="block uppercase tracking-wide text-s font-bold"
               htmlFor="lName"
             >
               Last Name
             </label>
             <input
-              className="appearance-none block w-full bg-gray-50 border border-theme-secondary rounded-2xl py-3 px-4 leading-tight focus:bg-white"
+              className="appearance-none text-black block w-full bg-gray-50 border border-theme-secondary rounded-2xl py-3 px-4 leading-tight focus:bg-white"
               id="lName"
               type="text"
               {...register("lName")}
@@ -89,16 +89,16 @@ As a reminder, the event is taking place at ${EVENT_LOCATION.address} on ${EVENT
             />
           </div>
         </div>
-        <div className="flex flex-wrap -mx-3 mb-6">
+        <div className="flex flex-wrap -mx-3 mb-2">
           <div className="w-full md:w-1/2 px-3 mb-4 md:mb-0">
             <label
-              className="block uppercase tracking-wide text-s font-bold mb-2"
+              className="block uppercase tracking-wide text-s font-bold"
               htmlFor="number"
             >
               # Attending
             </label>
             <input
-              className="appearance-none block w-full bg-gray-50 border border-theme-secondary rounded-2xl py-3 px-4"
+              className="appearance-none text-black block w-full bg-gray-50 border border-theme-secondary rounded-2xl py-3 px-4"
               id="number"
               type="number"
               min="1"
@@ -109,18 +109,18 @@ As a reminder, the event is taking place at ${EVENT_LOCATION.address} on ${EVENT
           {EMAIL_FROM && ( //TODO: Recenter attending if hidden
             <div className="w-full md:w-1/2 px-3">
               <label
-                className="block uppercase tracking-wide text-s font-bold mb-2"
+                className="block uppercase tracking-wide text-s font-bold"
                 htmlFor="email"
               >
                 Email
               </label>
               <input
-                className="appearance-none block w-full bg-gray-50 border border-theme-secondary rounded-2xl py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                className="appearance-none text-black block w-full bg-gray-50 border border-theme-secondary rounded-2xl py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                 id="email"
                 type="email"
                 {...register("email")}
               />
-              <p className="w-full text-gray-500 text-xs italic mt-2">
+              <p className="w-full text-gray-500 text-xs italic mt-1">
                 (Optional, for calendar invite)
               </p>
             </div>
@@ -129,7 +129,7 @@ As a reminder, the event is taking place at ${EVENT_LOCATION.address} on ${EVENT
         <div className="items-center">
           <div className="inline-block md:w-2/3">
             <button
-              className="text-white transition duration-500 ease-in-out bg-theme-primary hover:bg-theme-accent shadow drop-shadow-lg font-bold py-2 px-6 rounded-6xl"
+              className="text-white transition duration-500 ease-in-out bg-theme-accent hover:bg-theme-primary shadow drop-shadow-lg font-bold py-2 px-6 rounded-6xl"
               type="submit"
             >
               {submitting ? "Submitting..." : "RSVP"}
