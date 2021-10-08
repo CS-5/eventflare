@@ -12,13 +12,12 @@ export const addNotionRSVP = async (rsvp: RSVP): Promise<void> => {
   /* Attempt to create new DB entry with RSVP info */
   const { fName, lName, email, number } = rsvp;
   await notion.pages.create({
+    // BUG: This doesn't work
     parent: { database_id: NOTION_DATABASE_ID },
     properties: {
-      title: {
-        type: "title",
+      Name: {
         title: [
           {
-            type: "text",
             text: {
               content: `${fName} ${lName}`,
             },

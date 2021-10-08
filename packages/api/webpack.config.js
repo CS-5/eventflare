@@ -21,7 +21,7 @@ module.exports = {
         loader: "ts-loader",
         options: {
           // transpileOnly is useful to skip typescript checks occasionally:
-          // transpileOnly: true,
+          transpileOnly: true,
         },
       },
     ],
