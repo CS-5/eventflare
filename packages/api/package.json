@@ -33,6 +33,7 @@
   "dependencies": {
     "@notionhq/client": "^0.4.1",
     "@weddingflare/lib": "file:../lib",
+    "csv-writer": "^1.6.0",
     "itty-router": "^2.4.4",
     "uuid": "^8.3.2"
   }

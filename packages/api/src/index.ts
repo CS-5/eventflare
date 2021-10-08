@@ -2,7 +2,7 @@ import { Router } from "itty-router";
 import { RSVP } from "@weddingflare/lib";
 import { emailRSVP } from "./handlers/email";
 import { addNotionRSVP } from "./handlers/notion";
-import { addKVRSVP, getKVRSVP } from "./handlers/workerskv";
+import { addKVRSVP, getKVRSVP, getKVCSV } from "./handlers/workerskv";
 import { v4 as uuid } from "uuid";
 
 const router = Router();
@@ -61,6 +61,15 @@ router.get("/api/rsvp/:id", async (request: Request) => {
     status: 200,
     headers: {
       "Content-Type": "application/json",
+    },
+  });
+});
+
+router.get("/api/rsvp/csv", async (request: Request) => {
+  return new Response(await getKVCSV()), {
+    status: 200,
+    headers: {
+      "Content-Type": "text/csv",
     },
   });
 });
