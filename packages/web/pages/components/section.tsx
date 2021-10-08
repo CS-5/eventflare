@@ -5,7 +5,7 @@ interface Props {
   children: ReactNode;
 }
 
-export const Section: FunctionComponent<Props> = ({ name, children }) => {
+const Section: FunctionComponent<Props> = ({ name, children }) => {
   return (
     <div className="pb-6 text-center">
       <h3 className="font-theme-secondary font-bold pb-4 text-theme-accent text-5xl md:text-6xl">
@@ -15,3 +15,5 @@ export const Section: FunctionComponent<Props> = ({ name, children }) => {
     </div>
   );
 };
+
+export default Section;

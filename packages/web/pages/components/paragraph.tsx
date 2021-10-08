@@ -5,7 +5,7 @@ import { FunctionComponent } from "react";
 This section is meant to be a generic placeholder for text content.
 
 */
-export const ParagraphSection: FunctionComponent = () => {
+const ParagraphSection: FunctionComponent = () => {
   return (
     <>
       This is placeholder text and will be replaced when the website goes live.
@@ -18,3 +18,5 @@ export const ParagraphSection: FunctionComponent = () => {
     </>
   );
 };
+
+export default ParagraphSection;

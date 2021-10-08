@@ -7,7 +7,7 @@ This section is a table of times/dates and details, set in constants.ts
 
 */
 
-export const ScheduleSection: FunctionComponent = () => {
+const ScheduleSection: FunctionComponent = () => {
   //TODO Make this table work
   return (
     <table>
@@ -24,3 +24,5 @@ export const ScheduleSection: FunctionComponent = () => {
     </table>
   );
 };
+
+export default ScheduleSection;

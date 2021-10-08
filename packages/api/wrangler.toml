@@ -15,7 +15,7 @@ kv_namespaces = [
   { binding = "EF_KV", id = "5f20b350e7334a74a948610d18c7e1bd", preview_id = "726ac3b7103841c386018cf19584e48f" }
 ]
 
-[env.prod]
+[env.production]
 name = "eventflare-api"
 zone_id = "6742fb7575e78ff485737fbab12254af"
 route = "eventflare.carsonseese.com/api/*"

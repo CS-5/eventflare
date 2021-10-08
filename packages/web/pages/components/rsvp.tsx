@@ -15,7 +15,7 @@ This section is a RSVP form.
 
 */
 
-export const RSVPSection: FunctionComponent = () => {
+const RSVPSection: FunctionComponent = () => {
   const { register, handleSubmit, reset } = useForm<RSVP>();
   const [submitting, setSubmitting] = useState(false);
 
@@ -140,3 +140,5 @@ As a reminder, the event is taking place at ${EVENT_LOCATION.address} on ${EVENT
     </div>
   );
 };
+
+export default RSVPSection;

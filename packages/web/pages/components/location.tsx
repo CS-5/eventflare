@@ -12,7 +12,7 @@ interface Props {
   mapsApiKey: string;
 }
 
-export const LocationSection: FunctionComponent<Props> = ({ mapsApiKey }) => {
+const LocationSection: FunctionComponent<Props> = ({ mapsApiKey }) => {
   const containerStyle = {
     width: "100%",
     height: "400px",
@@ -40,3 +40,5 @@ export const LocationSection: FunctionComponent<Props> = ({ mapsApiKey }) => {
     </LoadScript>
   );
 };
+
+export default LocationSection;
