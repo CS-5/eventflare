@@ -1,6 +1,12 @@
 import { FunctionComponent } from "react";
 import { SCHEDULE } from "../../constants";
 
+/*
+
+This section is a table of times/dates and details, set in constants.ts
+
+*/
+
 export const ScheduleSection: FunctionComponent = () => {
   //TODO Make this table work
   return (

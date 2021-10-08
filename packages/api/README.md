@@ -8,11 +8,11 @@ This lack of a security implmentation is intentional, as this project is intende
 
 ## Handlers
 
-All handlers work based on a best-effort model. Therefore if an enviornment variable is not defined, a required object is missing, or there is an error upstream - the handler will quietly fail. This response, however, could easily be modified to return an error to the frontend, should that functionality be desired.
+All handlers work based on a best-effort model. Therefore if an enviornment variable is not defined, a required object is missing, or there is an error upstream - the handler will quietly fail.
 
 ### Workers KV
 
-Log RSVP respones in Workers KV. May eventually create an "admin" UI to view responses in the future
+Log RSVP respones in Workers KV. May eventually create an "admin" UI to view responses in the future. After a response is recieved, the RSVP ID is returned to the console of the frontend. This can then be used to view the contents of an RSVP at the `/api/rsvp/:id` endpoint.
 
 ### Email
 

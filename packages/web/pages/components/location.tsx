@@ -2,6 +2,12 @@ import { FunctionComponent, useState } from "react";
 import { GoogleMap, LoadScript } from "@react-google-maps/api";
 import { EVENT_LOCATION } from "../../constants";
 
+/*
+
+This section is a map of the event location.
+
+*/
+
 interface Props {
   mapsApiKey: string;
 }

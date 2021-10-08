@@ -9,6 +9,12 @@ import {
   EVENT_LOCAL_TIME,
 } from "../../constants";
 
+/*
+
+This section is a RSVP form.
+
+*/
+
 export const RSVPSection: FunctionComponent = () => {
   const { register, handleSubmit, reset } = useForm<RSVP>();
   const [submitting, setSubmitting] = useState(false);
