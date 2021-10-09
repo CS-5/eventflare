@@ -22,7 +22,7 @@ export default function Index(): ReactNode {
         {/* Content Container */}
         <div className="m-auto md:w-3/5 lg:w-48rem pt-20">
           {/* Header */}
-          <header className="z-0 fixed h-screen left-2/4 -translate-x-1/2 text-center md:mt-0">
+          <header className="z-0 fixed left-2/4 -translate-x-1/2 text-center md:mt-0">
             <h1 className="font-theme-primary font-semibold text-6xl text-theme-primary text-shadow-xl">
               <span className="block md:inline-block">Eventflare</span>
             </h1>
