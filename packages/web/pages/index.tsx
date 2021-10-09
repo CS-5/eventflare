@@ -18,7 +18,7 @@ export default function Index(): ReactNode {
         <title>{SITE_TITLE}</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
-      <div className="h-auto 2xl:h-screen bg-theme-background bg-cover bg-no-repeat bg-center bg-fixed overflow-auto">
+      <div className="h-auto 2xl:h-screen bg-theme-background bg-cover bg-no-repeat bg-center bg-fixed overflow-auto font-theme-primary">
         {/* Content Container */}
         <div className="m-auto md:w-3/5 lg:w-48rem pt-20">
           {/* Header */}
@@ -36,7 +36,7 @@ export default function Index(): ReactNode {
           </header>
 
           {/* Main */}
-          <main className="relative bg-theme-white dark:bg-theme-gray text-theme-black dark:text-theme-white rounded-t-6xl mt-96 md:mt-64 lg:mt-48 md:rounded-6xl md:shadow-2xl text-lg leading-8 p-8 text-center">
+          <main className="relative bg-theme-white dark:bg-theme-gray text-theme-black dark:text-theme-white rounded-t-6xl mt-96 md:mt-64 lg:mt-48 md:rounded-6xl md:shadow-2xl text-lg leading-8 p-8">
             <Section name="RSVP" className="pb-6">
               <RSVPSection />
             </Section>

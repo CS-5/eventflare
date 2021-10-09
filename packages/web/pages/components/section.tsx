@@ -9,7 +9,7 @@ interface Props {
 const Section: FunctionComponent<Props> = ({ name, children, className }) => {
   return (
     <div className={className}>
-      <h3 className="font-theme-secondary text-shadow-sm dark:text-shadow-md font-light pb-4 text-theme-primary text-5xl md:text-6xl">
+      <h3 className="dark:text-shadow-md pb-4 text-orange-500 text-3xl font-semibold">
         {name}
       </h3>
       {children}

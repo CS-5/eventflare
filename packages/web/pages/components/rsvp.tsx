@@ -55,50 +55,48 @@ As a reminder, the event is taking place at ${EVENT_LOCATION.address} on ${EVENT
   });
 
   return (
-    <div className="text-center">
+    <div className="flex justify-center">
       <form className="w-full max-w-lg inline-block" onSubmit={onSubmit}>
-        <div className="flex flex-wrap -mx-3 mb-4">
-          <div className="w-full md:w-1/2 px-3 mb-4 md:mb-0">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-start mb-4 text-gray-700 text-base">
+          <div>
             <label
-              className="block uppercase tracking-wide text-s font-bold"
+              className="block uppercase tracking-wide font-semibold"
               htmlFor="fName"
             >
               First Name
             </label>
             <input
-              className="appearance-none text-black block w-full bg-gray-50 border border-theme-secondary rounded-2xl py-3 px-4 leading-tight focus:outline-none focus:bg-white"
+              className="appearance-none text-black block w-full border-none rounded-2xl py-3 px-4 bg-gray-100 leading-tight"
               id="fName"
               type="text"
               {...register("fName")}
               required
             />
           </div>
-          <div className="w-full md:w-1/2 px-3">
+          <div>
             <label
-              className="block uppercase tracking-wide text-s font-bold"
+              className="block uppercase tracking-wide font-semibold"
               htmlFor="lName"
             >
               Last Name
             </label>
             <input
-              className="appearance-none text-black block w-full bg-gray-50 border border-theme-secondary rounded-2xl py-3 px-4 leading-tight focus:bg-white"
+              className="appearance-none text-black block w-full bg-gray-50 border-2 border-orange-300 rounded-xl py-3 px-4 leading-tight focus:bg-white"
               id="lName"
               type="text"
               {...register("lName")}
               required
             />
           </div>
-        </div>
-        <div className="flex flex-wrap -mx-3 mb-2">
-          <div className="w-full md:w-1/2 px-3 mb-4 md:mb-0">
+          <div className="bg-gray-200 rounded-xl ring-2 ring-transparent focus-within:ring-blue-500">
             <label
-              className="block uppercase tracking-wide text-s font-bold"
+              className="block uppercase tracking-wide font-bold text-gray-500 text-xs mx-3 mt-2"
               htmlFor="number"
             >
               # Attending
             </label>
             <input
-              className="appearance-none text-black block w-full bg-gray-50 border border-theme-secondary rounded-2xl py-3 px-4"
+              className="appearance-none text-black block w-full bg-transparent border-none pt-2 outline-none focus:ring-transparent"
               id="number"
               type="number"
               min="1"
@@ -107,9 +105,9 @@ As a reminder, the event is taking place at ${EVENT_LOCATION.address} on ${EVENT
             />
           </div>
           {EMAIL_FROM && ( //TODO: Recenter attending if hidden
-            <div className="w-full md:w-1/2 px-3">
+            <div>
               <label
-                className="block uppercase tracking-wide text-s font-bold"
+                className="block uppercase tracking-wide font-semibold"
                 htmlFor="email"
               >
                 Email
@@ -129,7 +127,7 @@ As a reminder, the event is taking place at ${EVENT_LOCATION.address} on ${EVENT
         <div className="items-center">
           <div className="inline-block md:w-2/3">
             <button
-              className="text-white transition duration-500 ease-in-out bg-theme-accent hover:bg-theme-primary shadow drop-shadow-lg font-bold py-2 px-6 rounded-6xl"
+              className="text-white transition duration-200 ease-in-out bg-blue-600 hover:bg-blue-800 shadow drop-shadow-lg font-bold py-2 px-6 rounded-2xl"
               type="submit"
             >
               {submitting ? "Submitting..." : "RSVP"}
