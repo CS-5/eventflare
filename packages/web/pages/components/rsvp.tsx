@@ -15,16 +15,25 @@ This section is a RSVP form.
 
 */
 
+interface RSVPForm extends Omit<RSVP, "number"> {
+  number: string;
+}
+
 const RSVPSection: FunctionComponent = () => {
-  const { register, handleSubmit, reset } = useForm<RSVP>();
+  const { register, handleSubmit, reset } = useForm<RSVPForm>();
   const [submitting, setSubmitting] = useState(false);
 
   const onSubmit = handleSubmit(async (data) => {
     setSubmitting(true);
 
+    const payload: RSVP = {
+      ...data,
+      number: parseInt(data.number),
+    };
+
     // Set message if email was recorded in the form and if EMAIL_FROM was configured at build time
     if (EMAIL_FROM && data.email) {
-      data.message = {
+      payload.message = {
         from: {
           name: SITE_TITLE,
           email: EMAIL_FROM,
@@ -41,7 +50,7 @@ As a reminder, the event is taking place at ${EVENT_LOCATION.address} on ${EVENT
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(data),
+      body: JSON.stringify(payload),
     }).catch((error) => {
       console.error(error);
     });

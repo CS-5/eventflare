@@ -1,5 +1,6 @@
 import { Client } from "@notionhq/client";
 import { RSVP } from "@eventflare/lib";
+import { CreatePageParameters } from "@notionhq/client/build/src/api-endpoints";
 
 export const addNotionRSVP = async (rsvp: RSVP): Promise<void> => {
   if (!NOTION_API_KEY || !NOTION_DATABASE_ID) return;
@@ -11,25 +12,34 @@ export const addNotionRSVP = async (rsvp: RSVP): Promise<void> => {
 
   /* Attempt to create new DB entry with RSVP info */
   const { fName, lName, email, number } = rsvp;
-  await notion.pages.create({
-    // BUG: This doesn't work
-    parent: { database_id: NOTION_DATABASE_ID },
-    properties: {
-      Name: {
-        title: [
-          {
-            text: {
-              content: `${fName} ${lName}`,
-            },
+
+  const newDoc: CreatePageParameters["properties"] = {
+    Name: {
+      type: "title",
+      title: [
+        {
+          type: "text",
+          text: {
+            content: `${fName} ${lName}`,
           },
-        ],
-      },
-      "Number Attending": {
-        number,
-      },
-      Email: {
-        email,
-      },
-    } as any,
+        },
+      ],
+    },
+    "Number Attending": {
+      type: "number",
+      number,
+    },
+  };
+
+  if (email) {
+    newDoc["Email"] = {
+      type: "email",
+      email,
+    };
+  }
+
+  await notion.pages.create({
+    parent: { database_id: NOTION_DATABASE_ID },
+    properties: newDoc,
   });
 };
