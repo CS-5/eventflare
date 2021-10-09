@@ -69,7 +69,12 @@ As a reminder, the event is taking place at ${EVENT_LOCATION.address} on ${EVENT
             required
           />
           {EMAIL_FROM && (
-            <Input label="Email" {...register("email")} type="email" />
+            <Input
+              label="Email"
+              {...register("email")}
+              type="email"
+              helperText="Optional, for calendar invite"
+            />
           )}
         </div>
         <div className="flex justify-end">
