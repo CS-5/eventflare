@@ -1,4 +1,4 @@
-import { FunctionComponent, useState } from "react";
+import React, { FunctionComponent, useState } from "react";
 import { RSVP } from "@eventflare/lib";
 import { useForm } from "react-hook-form";
 import {
@@ -8,6 +8,7 @@ import {
   EVENT_LOCATION,
   EVENT_LOCAL_TIME,
 } from "../../constants";
+import { Input } from "./Input";
 
 /*
 
@@ -64,86 +65,34 @@ As a reminder, the event is taking place at ${EVENT_LOCATION.address} on ${EVENT
   });
 
   return (
-    <div className="text-center">
+    <div className="flex justify-center">
       <form className="w-full max-w-lg inline-block" onSubmit={onSubmit}>
-        <div className="flex flex-wrap -mx-3 mb-4">
-          <div className="w-full md:w-1/2 px-3 mb-4 md:mb-0">
-            <label
-              className="block uppercase tracking-wide text-s font-bold"
-              htmlFor="fName"
-            >
-              First Name
-            </label>
-            <input
-              className="appearance-none text-black block w-full bg-gray-50 border border-theme-secondary rounded-2xl py-3 px-4 leading-tight focus:outline-none focus:bg-white"
-              id="fName"
-              type="text"
-              {...register("fName")}
-              required
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-start mb-4 text-gray-700 text-base">
+          <Input label="First Name" {...register("fName")} required />
+          <Input label="Last Name" {...register("lName")} required />
+          <Input
+            label="# Attending"
+            {...register("number")}
+            min="1"
+            type="number"
+            required
+          />
+          {EMAIL_FROM && (
+            <Input
+              label="Email"
+              {...register("email")}
+              type="email"
+              helperText="Optional, for calendar invite"
             />
-          </div>
-          <div className="w-full md:w-1/2 px-3">
-            <label
-              className="block uppercase tracking-wide text-s font-bold"
-              htmlFor="lName"
-            >
-              Last Name
-            </label>
-            <input
-              className="appearance-none text-black block w-full bg-gray-50 border border-theme-secondary rounded-2xl py-3 px-4 leading-tight focus:bg-white"
-              id="lName"
-              type="text"
-              {...register("lName")}
-              required
-            />
-          </div>
-        </div>
-        <div className="flex flex-wrap -mx-3 mb-2">
-          <div className="w-full md:w-1/2 px-3 mb-4 md:mb-0">
-            <label
-              className="block uppercase tracking-wide text-s font-bold"
-              htmlFor="number"
-            >
-              # Attending
-            </label>
-            <input
-              className="appearance-none text-black block w-full bg-gray-50 border border-theme-secondary rounded-2xl py-3 px-4"
-              id="number"
-              type="number"
-              min="1"
-              {...register("number")}
-              required
-            />
-          </div>
-          {EMAIL_FROM && ( //TODO: Recenter attending if hidden
-            <div className="w-full md:w-1/2 px-3">
-              <label
-                className="block uppercase tracking-wide text-s font-bold"
-                htmlFor="email"
-              >
-                Email
-              </label>
-              <input
-                className="appearance-none text-black block w-full bg-gray-50 border border-theme-secondary rounded-2xl py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                id="email"
-                type="email"
-                {...register("email")}
-              />
-              <p className="w-full text-gray-500 text-xs italic mt-1">
-                (Optional, for calendar invite)
-              </p>
-            </div>
           )}
         </div>
-        <div className="items-center">
-          <div className="inline-block md:w-2/3">
-            <button
-              className="text-white transition duration-500 ease-in-out bg-theme-accent hover:bg-theme-primary shadow drop-shadow-lg font-bold py-2 px-6 rounded-6xl"
-              type="submit"
-            >
-              {submitting ? "Submitting..." : "RSVP"}
-            </button>
-          </div>
+        <div className="flex justify-end">
+          <button
+            className="w-full md:w-auto text-white transition duration-200 ease-in-out bg-blue-600 hover:bg-blue-800 shadow drop-shadow-lg font-bold py-2 px-6 rounded-2xl"
+            type="submit"
+          >
+            {submitting ? "Submitting..." : "RSVP"}
+          </button>
         </div>
       </form>
     </div>

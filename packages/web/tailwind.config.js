@@ -5,10 +5,15 @@ module.exports = {
   mode: "jit",
   darkMode: "media",
   theme: {
+    colors: {
+      transparent: "transparent",
+      current: "currentColor",
+      ...colors,
+    },
     extend: {
       fontFamily: {
-        "theme-primary": ["Oswald", "sans-serif"],
-        "theme-secondary": ["Roboto", "sans-serif"],
+        "theme-primary": ["Inter", "sans-serif"],
+        "theme-secondary": ["Oswald", "sans-serif"],
       },
       colors: {
         "theme-primary": colors.orange[500],
@@ -27,8 +32,6 @@ module.exports = {
       },
     },
   },
-  variants: {
-    extend: {},
-  },
+  variants: {},
   plugins: [require("@tailwindcss/forms"), require("tailwindcss-textshadow")],
 };
