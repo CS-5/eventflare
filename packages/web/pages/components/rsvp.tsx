@@ -1,5 +1,5 @@
 import { FunctionComponent, useState } from "react";
-import { APIResponse, RSVP } from "@eventflare/lib";
+import { RSVP } from "@eventflare/lib";
 import { useForm } from "react-hook-form";
 import {
   EMAIL_FROM,
