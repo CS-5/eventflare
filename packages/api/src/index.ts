@@ -28,14 +28,12 @@ router.post("/api/rsvp", async (request: Request) => {
     if (typeof EF_KV !== "undefined") await addKVRSVP(rsvp);
 
     // RSVP > Notion
-    // TODO: Fix notion
-    /*
     if (
       typeof NOTION_API_KEY !== "undefined" ||
       typeof NOTION_DATABASE_ID !== "undefined"
-    )
+    ) {
       await addNotionRSVP(rsvp);
-    */
+    }
 
     //RSVP > Email (Confirmation w/ ical, only fires if a Message is provided in the RSVP)
     if (typeof SENDGRID_API_KEY !== "undefined") {
