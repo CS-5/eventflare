@@ -11,7 +11,7 @@
 
 ### What this project is not:
 
-- The best example of how to work with the technologies and projects mentioned above (I'm learning 100% of this as I go... Pull Requests anyone?).
+- The best example of how to work with the technologies and projects mentioned above (I'm learning 100% of this as I go... After the Developer Challenge, pull requests anyone?).
 - A bullet-proof (both in security and functionality) solution for advertising and handling RSVP's for events. There are definitely some tweaks that should be made before it can be considered production-ready.
 - A UI/UX design masterpiece.
 

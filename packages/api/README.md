@@ -12,7 +12,7 @@ All handlers work based on a best-effort model. Therefore if an enviornment vari
 
 ### Workers KV
 
-Log RSVP respones in Workers KV. May eventually create an "admin" UI to view responses in the future. After a response is recieved, the RSVP ID is returned to the console of the frontend. This can then be used to view the contents of an RSVP at the `/api/rsvp/:id` endpoint.
+Log RSVP respones in Workers KV. May eventually create an "admin" UI to view responses in the future. After a response is recieved, the RSVP ID is returned to the console of the frontend. This can then be used to view the contents of an RSVP at the `/api/rsvp/:id` endpoint, or all current submissions (up to 1000) can be downloaded as a CSV at the `/api/rsvp/csv` endpoint.
 
 ### Email
 
