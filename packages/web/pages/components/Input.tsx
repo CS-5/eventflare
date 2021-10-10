@@ -1,4 +1,4 @@
-import { DetailedHTMLProps, VoidFunctionComponent } from "react";
+import { DetailedHTMLProps, forwardRef, Ref } from "react";
 
 interface InputProps
   extends DetailedHTMLProps<
@@ -9,11 +9,10 @@ interface InputProps
   helperText?: string;
 }
 
-export const Input: VoidFunctionComponent<InputProps> = ({
-  label,
-  helperText,
-  ...props
-}) => {
+const InputComponent = (
+  { label, helperText, ...props }: InputProps,
+  ref: Ref<HTMLInputElement>,
+) => {
   return (
     <div className="flex flex-col">
       <label className="bg-gray-200 rounded-xl ring-2 ring-transparent focus-within:ring-blue-500 px-3">
@@ -22,6 +21,7 @@ export const Input: VoidFunctionComponent<InputProps> = ({
         </span>
         <input
           className="my-2 p-0 appearance-none text-black block w-full bg-transparent border-none outline-none focus:ring-transparent"
+          ref={ref}
           {...props}
         />
       </label>
@@ -33,3 +33,5 @@ export const Input: VoidFunctionComponent<InputProps> = ({
     </div>
   );
 };
+
+export const Input = forwardRef(InputComponent);
