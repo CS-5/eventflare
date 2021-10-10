@@ -1,6 +1,6 @@
 /* Overview */
 export const SITE_TITLE = "Eventflare"; // Note: Title is used to set the site title and from name (email)
-export const SITE_URL = "https://Eventflare.carsonseese.com";
+export const SITE_URL = "https://eventflare.carsonseese.com";
 
 /* Event Loocation, Date, Time */
 export const EVENT_LOCATION = {

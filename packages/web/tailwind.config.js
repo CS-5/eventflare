@@ -19,7 +19,6 @@ module.exports = {
         "theme-primary": colors.orange[500],
         "theme-accent": colors.blue[500],
         "theme-gray": colors.gray[700],
-        "theme-white": colors.white,
       },
       backgroundImage: {
         "theme-background": "url('/image/background.jpg')",

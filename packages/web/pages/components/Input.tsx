@@ -26,7 +26,9 @@ export const Input: VoidFunctionComponent<InputProps> = ({
         />
       </label>
       {helperText ? (
-        <div className="text-xs text-gray-500 mt-1">{helperText}</div>
+        <div className="text-xs text-gray-500 dark:text-gray-300 mt-1">
+          {helperText}
+        </div>
       ) : null}
     </div>
   );

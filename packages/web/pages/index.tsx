@@ -26,7 +26,7 @@ export default function Index(): ReactNode {
             <h1 className="font-theme-primary font-semibold text-6xl text-theme-primary text-shadow-xl">
               <span className="block md:inline-block">Eventflare</span>
             </h1>
-            <h2 className="mt-2 font-theme-primary font-extralight text-2xl md:text-3xl text-theme-white">
+            <h2 className="mt-2 font-theme-primary font-extralight text-2xl md:text-3xl text-white">
               <span className="block md:inline-block">{EVENT_LOCAL_DATE}</span>
               <span className="hidden md:inline-block">&nbsp;-&nbsp;</span>
               <span className="block text-1xl md:inline-block">
@@ -36,7 +36,7 @@ export default function Index(): ReactNode {
           </header>
 
           {/* Main */}
-          <main className="relative bg-theme-white dark:bg-theme-gray text-theme-black dark:text-theme-white rounded-t-6xl mt-96 md:mt-64 lg:mt-48 md:rounded-6xl md:shadow-2xl text-lg leading-8 p-8">
+          <main className="relative bg-white dark:bg-theme-gray text-theme-black dark:text-white rounded-t-6xl mt-96 md:mt-64 lg:mt-48 md:rounded-6xl md:shadow-2xl text-lg leading-8 p-8">
             <Section name="RSVP" className="pb-6">
               <RSVPSection />
             </Section>
@@ -51,16 +51,20 @@ export default function Index(): ReactNode {
           </main>
 
           {/* Footer */}
-          <footer className="bg-theme-white dark:bg-theme-gray text-theme-gray dark:text-theme-white md:bg-opacity-0 md:text-theme-white md:shadow-2xl pt-0 pb-5 md:pt-5 text-center">
-            <a href="https://github.com/CS-5/eventflare">
-              {/* Footer isn't clickable (seems to work on mobile) */}
+          <footer className="bg-white dark:bg-theme-gray text-theme-gray dark:text-white md:bg-opacity-0 md:text-white md:shadow-2xl pt-0 pb-5 md:pt-5 text-center">
               <span className="block md:inline-block">
-                Made with ❤️ by CS-5,&nbsp;
+              Made with ❤️ by{" "}
+              <a
+                className="transition duration-300 ease-in-out text-theme-accent hover:text-theme-primary"
+                href="https://github.com/CS-5/eventflare"
+              >
+                CS-5
+              </a>
+              ,&nbsp;
               </span>
               <span className="block md:inline-block">
                 powered by Cloudflare Workers and Pages.
               </span>
-            </a>
           </footer>
         </div>
       </div>
