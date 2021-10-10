@@ -8,19 +8,22 @@ This section is a table of times/dates and details, set in constants.ts
 */
 
 const ScheduleSection: FunctionComponent = () => {
-  //TODO Make this table work
   return (
-    <table>
-      <tr>
-        <th>Time</th>
-        <th>Details</th>
-      </tr>
-      {SCHEDULE.forEach(({ time, description }) => {
-        <tr>
-          <td>{time}</td>
-          <td>{description}</td>
-        </tr>;
-      })}
+    <table className="w-2/3 mx-auto border border-collapse">
+      <thead>
+        <tr className="border">
+          <th>Time</th>
+          <th>Details</th>
+        </tr>
+      </thead>
+      <tbody>
+        {SCHEDULE.map((row) => (
+          <tr className="border">
+            <td>{row.time}</td>
+            <td>{row.description}</td>
+          </tr>
+        ))}
+      </tbody>
     </table>
   );
 };
