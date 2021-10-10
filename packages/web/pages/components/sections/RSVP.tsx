@@ -7,8 +7,8 @@ import {
   SITE_TITLE,
   EVENT_LOCATION,
   EVENT_LOCAL_TIME,
-} from "../../constants";
-import { Input } from "./Input";
+} from "../../../constants";
+import { Input } from "../Input";
 
 /*
 

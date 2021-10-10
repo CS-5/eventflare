@@ -1,9 +1,10 @@
 import { ReactNode } from "react";
 import Head from "next/head";
-import LocationSection from "./components/location";
-import RSVPSection from "./components/rsvp";
-import ScheduleSection from "./components/schedule";
-import Section from "./components/section";
+import LocationSection from "./components/sections/Location";
+import RSVPSection from "./components/sections/RSVP";
+import ScheduleSection from "./components/sections/Schedule";
+import Section from "./components/Section";
+import AboutSection from "./components/sections/About";
 import {
   EVENT_LOCAL_DATE,
   MAPS_API_KEY,
@@ -40,6 +41,9 @@ export default function Index(): ReactNode {
             <Section name="RSVP" className="pb-6">
               <RSVPSection />
             </Section>
+            <Section name="About" className="pb-6">
+              <AboutSection />
+            </Section>
             <Section name="Schedule" className="pb-6">
               <ScheduleSection />
             </Section>
@@ -52,7 +56,7 @@ export default function Index(): ReactNode {
 
           {/* Footer */}
           <footer className="bg-white dark:bg-theme-gray text-theme-gray dark:text-white md:bg-opacity-0 md:text-white md:shadow-2xl pt-0 pb-5 md:pt-5 text-center">
-              <span className="block md:inline-block">
+            <span className="block md:inline-block">
               Made with ❤️ by{" "}
               <a
                 className="transition duration-300 ease-in-out text-theme-accent hover:text-theme-primary"
@@ -61,10 +65,10 @@ export default function Index(): ReactNode {
                 CS-5
               </a>
               ,&nbsp;
-              </span>
-              <span className="block md:inline-block">
-                powered by Cloudflare Workers and Pages.
-              </span>
+            </span>
+            <span className="block md:inline-block">
+              powered by Cloudflare Workers and Pages.
+            </span>
           </footer>
         </div>
       </div>
