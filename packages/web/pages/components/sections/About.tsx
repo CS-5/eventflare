@@ -28,14 +28,15 @@ const AboutSection: FunctionComponent = () => {
         The highlight piece of functionality is the RSVP section. This is a
         simple form that sends its results to a easy to customize worker to do
         whatever you need with the results. A few possible use cases include:
-        <ul className="list-disc ml-5 mt-2 mb-4">
-          <li>Notion database entry</li>
-          <li>Email (to event admin or a confirmation email... or both)</li>
-          <li>Discord Notification (Webhook)</li>
-          <li>Slack Notification (Webhook)</li>
-          <li>... almost anywhere else you can think of</li>
-        </ul>
       </p>
+
+      <ul className="list-disc ml-5 mt-2">
+        <li>Notion database entry</li>
+        <li>Email (to event admin or a confirmation email... or both)</li>
+        <li>Discord Notification (Webhook)</li>
+        <li>Slack Notification (Webhook)</li>
+        <li>... almost anywhere else you can think of</li>
+      </ul>
 
       <p className="mt-4">
         For the sake of this demo, feel free to try filling out the form. I have
