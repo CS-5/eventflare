@@ -39,7 +39,7 @@ export const SCHEDULE = [
   },
   {
     time: "August 1st @ 8PM",
-    description: "Party",
+    description: "After Party",
   },
 ];
 
