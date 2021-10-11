@@ -34,4 +34,4 @@ const InputComponent = (
   );
 };
 
-export const Input = forwardRef(InputComponent);
+export default forwardRef(InputComponent);
