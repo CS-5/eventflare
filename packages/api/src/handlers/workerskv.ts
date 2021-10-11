@@ -4,7 +4,7 @@ import { createObjectCsvStringifier } from "csv-writer";
 // Writes an RSVP to KV
 export const addKVRSVP = async (rsvp: RSVP): Promise<void> => {
   if (!rsvp.id) return;
-  return await EF_KV.put(rsvp.id, JSON.stringify(rsvp));
+  return await EF_KV.put(rsvp.id, JSON.stringify(rsvp), { expiration: 86400 });
 };
 
 // Gets the RSVP details from the value matching the key provided
@@ -25,7 +25,7 @@ export const getKVCSV = async (): Promise<string | undefined> => {
   });
 
   // This array could be typed as RSVP, but that could cause issues if an entry contains a Message.
-  let records: {
+  const records: {
     id: string;
     fName: string;
     lName: string;
