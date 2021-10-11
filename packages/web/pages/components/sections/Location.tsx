@@ -1,4 +1,4 @@
-import { FunctionComponent, useState } from "react";
+import { FunctionComponent } from "react";
 import { GoogleMap, LoadScript } from "@react-google-maps/api";
 import { EVENT_LOCATION } from "../../../constants";
 

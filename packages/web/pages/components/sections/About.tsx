@@ -4,8 +4,8 @@ const AboutSection: FunctionComponent = () => {
   return (
     <>
       <p>
-        Thanks for checking out this project! If you haven't seen it already,
-        you should first check out the{" "}
+        Thanks for checking out this project! If you haven&apos;t seen it
+        already, you should first check out the{" "}
         <a
           className="text-theme-accent hover:text-theme-primary transition duration-300"
           href="https://github.com/CS-5/eventflare"
@@ -20,7 +20,7 @@ const AboutSection: FunctionComponent = () => {
 
       <p className="mt-4">
         As the readme describes, Eventflare is supposed to be a fairly simple
-        boilerplate for event registration. Whether that's a wedding, open
+        boilerplate for event registration. Whether that&apos;s a wedding, open
         house, LAN party, or tour - hopefully Eventflare has you covered.
       </p>
 
