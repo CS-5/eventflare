@@ -40,7 +40,7 @@ const RSVPSection: FunctionComponent = () => {
           email: EMAIL_FROM,
         },
         subject: "Eventflare RSVP Confirmation!",
-        body: `${data.fName}, thanks for your RSVP. This email is just confirming that we recieved it.
+        body: `${data.fName}, thanks for your RSVP. This email is just confirming that we received it.
 
 As a reminder, the event is taking place at ${EVENT_LOCATION.address} on ${EVENT_LOCAL_DATE} at ${EVENT_LOCAL_TIME}. Looking forward to seeing you there!`,
       };
