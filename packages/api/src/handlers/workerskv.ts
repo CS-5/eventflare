@@ -4,7 +4,9 @@ import { createObjectCsvStringifier } from "csv-writer";
 // Writes an RSVP to KV
 export const addKVRSVP = async (rsvp: RSVP): Promise<void> => {
   if (!rsvp.id) return;
-  return await EF_KV.put(rsvp.id, JSON.stringify(rsvp), { expiration: 86400 });
+  return await EF_KV.put(rsvp.id, JSON.stringify(rsvp), {
+    expirationTtl: 86400,
+  });
 };
 
 // Gets the RSVP details from the value matching the key provided
@@ -43,7 +45,7 @@ export const getKVCSV = async (): Promise<string | undefined> => {
         fName: rsvp.fName,
         lName: rsvp.lName,
         number: rsvp.number,
-        email: rsvp.email ?? "none@nobody.no",
+        email: rsvp.email ?? "",
       });
     }
   }
