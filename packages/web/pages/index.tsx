@@ -69,6 +69,18 @@ export default function Index(): ReactNode {
             <span className="block md:inline-block">
               powered by Cloudflare Workers and Pages.
             </span>
+            <span className="block">
+              Background image by{" "}
+              <a
+                className="transition duration-300 ease-in-out text-theme-accent hover:text-theme-primary"
+                href="https://unsplash.com/@samuelpereira"
+                target="_blank"
+                rel="noreferrer"
+              >
+                @samuelpereira
+              </a>{" "}
+              on Unsplash.
+            </span>
           </footer>
         </div>
       </div>
