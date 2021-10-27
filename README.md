@@ -1,5 +1,7 @@
 # Eventflare
 
+![App Overview](https://raw.githubusercontent.com/CS-5/eventflare/main/docs/app.png)
+
 ## Introduction
 
 ### What this project is:
