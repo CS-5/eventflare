@@ -1,6 +1,6 @@
 # Eventflare
 
-![App Overview](https://raw.githubusercontent.com/CS-5/eventflare/main/app.png)
+![App Overview](https://raw.githubusercontent.com/CS-5/eventflare/main/docs/app.png)
 
 ## Introduction
 
