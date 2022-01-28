@@ -2,15 +2,12 @@ import { v4 as uuid } from "uuid";
 import type { RSVP, APIResponse } from "../../types";
 import { createObjectCsvStringifier } from "csv-writer";
 import { Client } from "@notionhq/client";
-
 import { CreatePageParameters } from "@notionhq/client/build/src/api-endpoints";
 
 export const onRequestPost: PagesFunction<{
   EF_RSVP_RESPONSES: KVNamespace;
   NOTION_API_KEY: string;
   NOTION_DATABASE_ID: string;
-  SENDGRID_API_KEY: string;
-  SENDGRID_API_URL: string;
 }> = async ({ request, env }) => {
   const rsvp: RSVP = await request.json();
 
@@ -34,11 +31,6 @@ export const onRequestPost: PagesFunction<{
     // RSVP > Notion (If API key and DB are specified)
     if (env.NOTION_API_KEY && env.NOTION_DATABASE_ID) {
       await addNotionRSVP(env.NOTION_API_KEY, env.NOTION_DATABASE_ID, rsvp);
-    }
-
-    // RSVP > Email (If API key and URL are specified)
-    if (env.SENDGRID_API_KEY && env.SENDGRID_API_URL) {
-      await emailRSVP(env.SENDGRID_API_KEY, env.SENDGRID_API_URL, rsvp);
     }
 
     return response(
@@ -164,7 +156,7 @@ const addNotionRSVP = async (
   });
 
   /* Attempt to create new DB entry with RSVP info */
-  const { fName, lName, email, number } = rsvp;
+  const { fName, lName, number, attending } = rsvp; // TODO: Add 'attending' checkbox
 
   const newDoc: CreatePageParameters["properties"] = {
     Name: {
@@ -184,57 +176,8 @@ const addNotionRSVP = async (
     },
   };
 
-  if (email) {
-    newDoc["Email"] = {
-      type: "email",
-      email,
-    };
-  }
-
   await notion.pages.create({
     parent: { database_id: db },
     properties: newDoc,
   });
-};
-
-/**
- * Send email to RSVP responder
- * @param key Sendgrid API Key
- * @param url Sendgrid API URL
- * @param rsvp The RSVP object to email
- * @returns Promise that resolves when the email is sent
- */
-const emailRSVP = async (
-  key: string,
-  url: string,
-  rsvp: RSVP
-): Promise<void> => {
-  const message = rsvp.message;
-
-  // Ensure all required fields are defined (including empty strings for non-optional fields)
-  if (!rsvp.email || !message?.from || !message?.subject) return;
-
-  // Create the message
-  const msg = {
-    personalizations: [{ to: [{ email: rsvp.email }] }],
-    from: message.from,
-    subject: message.subject,
-    content: [{ type: "text/plain", value: `${message.body}` }],
-  };
-
-  // Send it!
-  const res = await fetch(url, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${key}`,
-    },
-    body: JSON.stringify(msg),
-  });
-
-  if (!res.ok) {
-    throw Error(await res.text());
-  }
-
-  return;
 };

@@ -83,7 +83,7 @@ export default function Index({ mapsAPIKey, emailFrom }: Props): ReactNode {
           </svg>
 
           <Section name="RSVP" className="pb-6">
-            <RSVPSection emailFrom={emailFrom} site={site} />
+            <RSVPSection />
           </Section>
           <Section name="About" className="pb-6">
             <AboutSection />

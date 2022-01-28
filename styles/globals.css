@@ -1,3 +1,21 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+input[type="radio"] + label {
+  transition-property: color, background-color, border-color;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 500ms;
+}
+
+input[type="radio"] + label:hover {
+  background-color: #4c7de6;
+}
+
+input[type="radio"]:checked + label {
+  background-color: #2563eb;
+}
+
+input[type="radio"]:checked + label span {
+  color: white;
+}
