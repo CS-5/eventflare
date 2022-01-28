@@ -1,8 +1,8 @@
 import { Router } from "itty-router";
 import { APIResponse, RSVP } from "@eventflare/lib";
-import { emailRSVP } from "./handlers/email";
-import { addNotionRSVP } from "./handlers/notion";
-import { addKVRSVP, getKVRSVP, getKVCSV } from "./handlers/workerskv";
+import { emailRSVP } from "./src/handlers/email";
+import { addNotionRSVP } from "./src/handlers/notion";
+import { addKVRSVP, getKVRSVP, getKVCSV } from "./src/handlers/workerskv";
 import { v4 as uuid } from "uuid";
 
 const router = Router();
