@@ -1,6 +1,6 @@
 import { FunctionComponent } from "react";
 import { GoogleMap, LoadScript } from "@react-google-maps/api";
-import { EVENT_LOCATION } from "../../../constants";
+import { EVENT_LOCATION } from "../../constants";
 
 /*
 

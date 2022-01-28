@@ -1,5 +1,5 @@
 import { FunctionComponent } from "react";
-import { SCHEDULE } from "../../../constants";
+import { SCHEDULE } from "../../constants";
 
 /*
 

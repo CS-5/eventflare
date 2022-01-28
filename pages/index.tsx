@@ -1,10 +1,10 @@
 import { ReactNode } from "react";
 import Head from "next/head";
-import LocationSection from "./components/sections/Location";
-import RSVPSection from "./components/sections/RSVP";
-import ScheduleSection from "./components/sections/Schedule";
-import Section from "./components/Section";
-import AboutSection from "./components/sections/About";
+import LocationSection from "../components/sections/Location";
+import RSVPSection from "../components/sections/RSVP";
+import ScheduleSection from "../components/sections/Schedule";
+import Section from "../components/Section";
+import AboutSection from "../components/sections/About";
 import {
   EVENT_LOCAL_DATE,
   MAPS_API_KEY,
