@@ -17,12 +17,11 @@ export async function getStaticProps() {
   return {
     props: {
       mapsAPIKey: process.env.MAPS_API_KEY,
-      emailFrom: process.env.EMAIL_FROM,
     },
   };
 }
 
-export default function Index({ mapsAPIKey, emailFrom }: Props): ReactNode {
+export default function Index({ mapsAPIKey }: Props): ReactNode {
   return (
     <>
       <Head>
