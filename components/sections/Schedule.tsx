@@ -1,5 +1,4 @@
 import { FunctionComponent } from "react";
-import { SCHEDULE } from "../../constants";
 
 /*
 
@@ -7,7 +6,14 @@ This section is a table of times/dates and details, set in constants.ts
 
 */
 
-const ScheduleSection: FunctionComponent = () => {
+interface Props {
+  schedule: {
+    time: string;
+    description: string;
+  }[];
+}
+
+const ScheduleSection: FunctionComponent<Props> = ({ schedule }) => {
   return (
     <table className="w-auto md:w-5/6 mx-auto border border-collapse border-black dark:border-white">
       <thead>
@@ -17,7 +23,7 @@ const ScheduleSection: FunctionComponent = () => {
         </tr>
       </thead>
       <tbody>
-        {SCHEDULE.map((row, index) => (
+        {schedule.map((row, index) => (
           <tr className="border" key={index}>
             <td className="border pl-3">{row.time}</td>
             <td className="border pl-3">{row.description}</td>

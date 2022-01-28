@@ -1,6 +1,5 @@
 import { FunctionComponent } from "react";
 import { GoogleMap, LoadScript } from "@react-google-maps/api";
-import { EVENT_LOCATION } from "../../constants";
 
 /*
 
@@ -10,18 +9,17 @@ This section is a map of the event location.
 
 interface Props {
   mapsApiKey: string;
+  center: {
+    lat: number;
+    lng: number;
+  };
 }
 
-const LocationSection: FunctionComponent<Props> = ({ mapsApiKey }) => {
+const LocationSection: FunctionComponent<Props> = ({ mapsApiKey, center }) => {
   const containerStyle = {
     width: "100%",
     height: "400px",
     borderRadius: "2rem",
-  };
-
-  const center = {
-    lat: EVENT_LOCATION.lat,
-    lng: EVENT_LOCATION.lng,
   };
 
   const options = {

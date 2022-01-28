@@ -1,13 +1,6 @@
 import React, { FunctionComponent, useState } from "react";
-import { RSVP } from "@eventflare/lib";
+import { RSVP } from "../../types";
 import { useForm } from "react-hook-form";
-import {
-  EMAIL_FROM,
-  EVENT_LOCAL_DATE,
-  SITE_TITLE,
-  EVENT_LOCATION,
-  EVENT_LOCAL_TIME,
-} from "../../constants";
 import Input from "../Input";
 
 /*
@@ -20,7 +13,12 @@ interface RSVPForm extends Omit<RSVP, "number"> {
   number: string;
 }
 
-const RSVPSection: FunctionComponent = () => {
+interface Props {
+  site: any; // Note: Don't do this
+  emailFrom: string;
+}
+
+const RSVPSection: FunctionComponent<Props> = ({ site, emailFrom }) => {
   const { register, handleSubmit, reset } = useForm<RSVPForm>();
   const [submitting, setSubmitting] = useState(false);
 
@@ -33,16 +31,16 @@ const RSVPSection: FunctionComponent = () => {
     };
 
     // Set message if email was recorded in the form and if EMAIL_FROM was configured at build time
-    if (EMAIL_FROM && data.email) {
+    if (emailFrom && data.email) {
       payload.message = {
         from: {
-          name: SITE_TITLE,
-          email: EMAIL_FROM,
+          name: site.name,
+          email: emailFrom,
         },
         subject: "Eventflare RSVP Confirmation!",
         body: `${data.fName}, thanks for your RSVP. This email is just confirming that we received it.
 
-As a reminder, the event is taking place at ${EVENT_LOCATION.address} on ${EVENT_LOCAL_DATE} at ${EVENT_LOCAL_TIME}. Looking forward to seeing you there!`,
+As a reminder, the event is taking place at ${site.event.location.address} on ${site.event.date} at ${site.event.time}. Looking forward to seeing you there!`,
       };
     }
 
@@ -77,7 +75,7 @@ As a reminder, the event is taking place at ${EVENT_LOCATION.address} on ${EVENT
             type="number"
             required
           />
-          {EMAIL_FROM && (
+          {emailFrom && (
             <Input
               label="Email"
               {...register("email")}
