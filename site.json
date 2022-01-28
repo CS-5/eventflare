@@ -1,0 +1,32 @@
+{
+  "name": "Eventflare",
+  "event": {
+    "date": "01/01/2022",
+    "time": "14:00",
+    "timezone": "America/New_York",
+    "location": {
+      "address": "Nothing, AZ",
+      "lat": 34.48,
+      "lng": -113.3359,
+      "url": "https://example.com"
+    },
+    "schedule": [
+      {
+        "time": "August 1st @ 2PM",
+        "description": "Arrive and socialize"
+      },
+      {
+        "time": "August 1st @ 3PM",
+        "description": "Event start"
+      },
+      {
+        "time": "...",
+        "description": "..."
+      },
+      {
+        "time": "August 1st @ 8PM",
+        "description": "After Party"
+      }
+    ]
+  }
+}
