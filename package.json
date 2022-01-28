@@ -4,6 +4,9 @@
   "private": true,
   "author": "CS-5",
   "license": "MIT",
+  "browser": {
+    "fs": false
+  },
   "scripts": {
     "dev": "npm run wrangler:dev",
     "build": "npm run next:build && npm run next:export",
@@ -17,6 +20,7 @@
   "devDependencies": {
     "@cloudflare/workers-types": "^3.3.1",
     "@types/react": "^17.0.38",
+    "@types/uuid": "^8.3.4",
     "@typescript-eslint/eslint-plugin": "^5.10.1",
     "autoprefixer": "^10.4.2",
     "eslint": "8.7.0",
@@ -30,6 +34,7 @@
   },
   "dependencies": {
     "@eventflare/lib": "file:../lib",
+    "@notionhq/client": "^0.4.13",
     "@react-google-maps/api": "^2.7.0",
     "@tailwindcss/forms": "^0.4.0",
     "csv-writer": "^1.6.0",
